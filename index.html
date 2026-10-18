@@ -21,9 +21,11 @@ const m=D.filter(r=>[r.artist,r.credit,r.title,r.publisher,r.page_type,String(r.
 h.innerHTML='<b>'+m.length+' match'+(m.length==1?'':'es')+'</b>'+m.slice(0,5).map(r=>'<div style="padding:6px 0;border-top:1px solid #0002"><b>$'+Math.round(r.price).toLocaleString()+'</b> · '+r.credit+' · '+r.title+'</div>').join('')+(m.length>5?'<div><a href="sales/?q='+encodeURIComponent(q.value)+'">See all '+m.length+' →</a></div>':'')});
 </script>
 <section class="news dots" id="newsletter" style="background-color:var(--red)"><div class="wrap">
-<span class="soon">Coming soon</span><h2>What sold this week, every Friday</h2>
-<p>A free weekly email with the biggest prime-era sales is on the way. Sign-ups open soon.</p>
-<form onsubmit="return false" aria-label="Newsletter (coming soon)"><input type="email" placeholder="Newsletter launching soon" disabled aria-label="Email"><button disabled>Soon</button></form>
+<h2>What sold this week, every Friday</h2>
+<p>The week's biggest prime-era sales in a free weekly email.</p>
+<div class="bh"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="7ed33c32-9771-46cb-b14b-cb6623312101"></script></div>
+<p class="fallback">Form not loading? <a href="https://davids-newsletter-010ea4.beehiiv.com/subscribe">Subscribe on Beehiiv →</a></p>
 </div></section>
 <footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; thumbnails credited to and linked to Heritage Auctions. Not affiliated with any auction house or publisher. <a href="about/">Methodology &amp; sources</a></div></footer>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body></html>

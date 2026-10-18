@@ -68,3 +68,10 @@ footer a{color:var(--yel);display:inline-flex;min-height:40px;align-items:center
 @media(min-width:1000px){.wrap{padding:0 24px}.hero .wrap{grid-template-columns:1.5fr 1fr;padding:48px 24px;align-items:center}.hero h1{font-size:64px}.herothumbs{justify-content:flex-end}.grid.g4{grid-template-columns:repeat(4,1fr)}.grid.g3{grid-template-columns:repeat(3,1fr)}h2{font-size:42px}.logo{font-size:28px}nav.main a{font-size:15px;padding:0 12px}}
 .board .meta a,.cap a{display:inline-block;padding:12px 0;margin:-10px 0}
 .bh{max-width:560px;min-height:60px}.fallback a{color:#fff;font-weight:800;display:inline-flex;min-height:44px;align-items:center}
+.news form.nl{display:flex;max-width:560px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);background:#fff}
+.news form.nl input{flex:1;border:0;padding:0 14px;font-size:16px;min-width:0;min-height:52px;font-family:inherit;color:var(--ink);background:#fff;border-radius:0}
+.news form.nl button{background:var(--yel);color:var(--ink);border:0;border-left:3px solid var(--ink);font-family:Bangers,Impact;font-size:22px;letter-spacing:1px;padding:0 20px;min-height:52px;cursor:pointer;border-radius:0}
+.news form.nl button:active{transform:translate(1px,1px)}
+.nl-thanks{background:#fff;color:var(--ink);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:14px;max-width:560px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.fallback{font-size:14px}

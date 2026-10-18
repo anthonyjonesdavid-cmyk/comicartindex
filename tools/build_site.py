@@ -22,11 +22,14 @@ def page(title,desc,body,depth,cur=''):
 <section class="news dots" id="newsletter" style="background-color:var(--red)"><div class="wrap">
 <h2>What sold this week, every Friday</h2>
 <p>The week's biggest prime-era sales in a free weekly email.</p>
-<div class="bh"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="7ed33c32-9771-46cb-b14b-cb6623312101"></script></div>
-<p class="fallback">Form not loading? <a href="https://subscribe-forms.beehiiv.com/v3/forms/7ed33c32-9771-46cb-b14b-cb6623312101">Subscribe on Beehiiv →</a></p>
+<form class="nl" action="https://subscribe-forms.beehiiv.com/api/submit" method="post" target="bh-sink" accept-charset="UTF-8" onsubmit="var f=this;setTimeout(function(){{f.hidden=true;f.nextElementSibling.hidden=false}},400)">
+<input type="hidden" name="form_id" value="7ed33c32-9771-46cb-b14b-cb6623312101"><input type="hidden" name="referrer" value="https://comicartindex.com/"><input type="hidden" name="utm_source" value="comicartindex.com">
+<label class="sr" for="nl-email">Email address</label><input id="nl-email" type="email" name="form[email]" placeholder="you@email.com" required autocomplete="email"><button type="submit">Subscribe</button></form>
+<p class="nl-thanks" role="status" hidden><b>Thanks, you're in!</b> Check your inbox for a welcome email (and your spam folder, just in case).</p>
+<iframe name="bh-sink" title="Subscription" hidden style="display:none"></iframe>
+<p class="fallback">Trouble subscribing? <a href="https://subscribe-forms.beehiiv.com/v3/forms/7ed33c32-9771-46cb-b14b-cb6623312101">Use the Beehiiv form →</a></p>
 </div></section>
 <footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; thumbnails credited to and linked to Heritage Auctions. Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a></div></footer>
-<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body></html>'''
 def card(r,p):
   if r.get('image'):

@@ -1,4 +1,4 @@
-:root{--red:#e23b2e;--yel:#ffd23f;--blu:#1f5fbf;--ink:#111;--paper:#fff8e7}
+:root{--red:#e23b2e;--yel:#ffd23f;--blu:#1f5fbf;--ink:#111;--paper:#f7f1e3}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.45}
 h1,h2,h3,.logo{font-family:Bangers,Impact,sans-serif;letter-spacing:1px;font-weight:400}
@@ -7,7 +7,9 @@ a{color:var(--blu)}
 .dots{background-image:radial-gradient(rgba(0,0,0,.16) 1.5px,transparent 1.6px);background-size:10px 10px}
 header.top{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;border-bottom:4px solid var(--yel);padding-top:env(safe-area-inset-top)}
 header.top .wrap{display:flex;align-items:center;gap:12px;min-height:52px}
-.logo{font-size:24px;color:var(--yel);text-shadow:2px 2px 0 var(--red);text-decoration:none;white-space:nowrap;display:flex;align-items:center;min-height:44px}
+.logo{font-size:24px;color:var(--yel);text-shadow:2px 2px 0 var(--red);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:8px;min-height:44px}
+.logo img{width:40px;height:40px;flex:none;display:block}
+@media(max-width:480px){.logo{font-size:0;gap:0}}
 nav.main{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
 nav.main::-webkit-scrollbar{display:none}
 nav.main a{color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:0 10px;min-height:44px;display:flex;align-items:center;white-space:nowrap;border-radius:4px}

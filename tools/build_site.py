@@ -16,8 +16,8 @@ def page(title,desc,body,depth,cur=''):
   return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{p}assets/style.css"></head><body>
-<header class="top"><div class="wrap"><a class="logo" href="{p}">Comic Art Index</a><nav class="main" aria-label="Main">{navh}</nav></div></header>
+<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css"></head><body>
+<header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="40" height="40">Comic Art Index</a><nav class="main" aria-label="Main">{navh}</nav></div></header>
 {body}
 <section class="news dots" id="newsletter" style="background-color:var(--red)"><div class="wrap">
 <h2>What sold this week, every Friday</h2>

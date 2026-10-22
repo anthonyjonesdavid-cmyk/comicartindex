@@ -1,7 +1,7 @@
 import sys,asyncio
 from playwright.async_api import async_playwright
 base=sys.argv[1]; pre=sys.argv[2]
-sizes=[(390,844,True),(430,932,True),(1366,1024,False)]
+sizes=[(390,844,True),(430,932,True),(1024,1366,True),(1366,1024,False)]
 pages=['', 'sales/', 'artists/jim-lee/', 'about/']
 async def main():
   async with async_playwright() as p:
@@ -10,7 +10,7 @@ async def main():
       c=await b.new_context(viewport={'width':w,'height':h},device_scale_factor=2 if m else 1,is_mobile=m,has_touch=m)
       pg=await c.new_page()
       for u in pages:
-        await pg.goto(base+u,wait_until='networkidle')
+        await pg.goto(base+u,wait_until='domcontentloaded');await pg.wait_for_timeout(2500)
         name=f"shots/{pre}{(u.strip('/').replace('/','-') or 'home')}-{w}x{h}.png"
         await pg.screenshot(path=name)
         # checks

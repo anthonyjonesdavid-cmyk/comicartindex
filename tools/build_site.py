@@ -21,7 +21,7 @@ def page(title,desc,body,depth,cur=''):
   return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=3"></head><body>
+<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=4"></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="36" height="36"><span>Comic Art Index</span></a><nav class="main" aria-label="Main">{navh}</nav></div></header>
 <main>{body}</main>
 <section class="band" id="newsletter"><div class="wrap">
@@ -104,14 +104,14 @@ const U=new URLSearchParams(location.search);f.value=U.get('q')||'';if(U.get('o'
 w('sales/index.html',page('All sales · Comic Art Index','Searchable table of verified prime-era original comic art sales.',sales,1,'All sales'))
 arts=sorted(by,key=lambda a:-sum(r['price'] for r in by[a]))
 al=''.join(f'<a class="atile" href="{slug(a)}/"><h3>{e(a)}</h3><div class="meta">{len(by[a])} sale{"s" if len(by[a])>1 else ""} · top {money(max(r["price"] for r in by[a]))}</div></a>' for a in arts)
-w('artists/index.html',page('Artists · Comic Art Index','Prime-era comic artists with tracked original art sales.',f'<section><div class="wrap"><div class="sh"><h1>Artists:</h1><span class="rule"></span></div><div class="grid g3">{al}</div></div></section>',1,'Artists'))
+w('artists/index.html',page('Original Comic Art Prices by Artist | Comic Art Index',f'Original comic art sale prices for {len(arts)} artists of the 1985–1995 prime era, from verified public auction results.',f'<section><div class="wrap"><div class="sh"><h1>Artists:</h1><span class="rule"></span></div><div class="grid g3">{al}</div></div></section>',1,'Artists'))
 for a in arts:
   rs=sorted(by[a],key=lambda r:-r['price'])
   b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All artists</a></div><div class="sh"><h1>{e(a)}</h1><span class="rule"></span></div>
-<div class="stats"><div><b>{len(rs)}</b>sales tracked</div><div><b>{money(rs[0]["price"])}</b>top sale</div><div><b>{money(sum(r["price"] for r in rs))}</b>total</div></div>
+<div class="stats s4"><div><b>{len(rs)}</b>sale{"s" if len(rs)>1 else ""} tracked</div><div><b>{money(rs[-1]["price"])}</b>lowest</div><div><b>{money(rs[0]["price"])}</b>highest</div><div><b>{money(sum(r["price"] for r in rs))}</b>total</div></div>
 <h2 class=sub>Price chart</h2>{chart(rs)}
 <h2 class=sub>Sales</h2>{"<div class='grid g4' style='margin-bottom:20px'>"+"".join(card(r,"../../") for r in rs if r.get("image"))+"</div>" if any(r.get("image") for r in rs) else ""}{table(rs,"../../")}</div></section>'''
-  w(f'artists/{slug(a)}/index.html',page(f'{a} original art sale prices · Comic Art Index',f'Verified public sales of {a} original comic art from 1985–1995.',b,2,'Artists'))
+  w(f'artists/{slug(a)}/index.html',page(f'{a} Original Comic Art Prices | Comic Art Index',f'{a} original comic art prices: {len(rs)} verified auction sale{"s" if len(rs)>1 else ""} from 1985–1995 work, '+(f'ranging {money(rs[-1]["price"])} to {money(rs[0]["price"])}' if len(rs)>1 else f'sold for {money(rs[0]["price"])}')+', with links to each lot.',b,2,'Artists'))
 srcs={}
 for r in S: srcs.setdefault(r['source'],[r['source_name'],0]); srcs[r['source']][1]+=1
 sl_=''.join(f'<li><a href="{e(u)}">{e(n)}</a> — {c} sale{"s" if c>1 else ""}<br><span class="meta">{e(u)}</span></li>' for u,(n,c) in sorted(srcs.items(),key=lambda x:-x[1][1]))
@@ -123,4 +123,8 @@ about=f'''<section><div class="wrap prose"><div class="sh"><h1>About &amp; metho
 <h2>Sources ({len(srcs)})</h2><ul>{sl_}</ul>
 <h2>Data</h2><p>The full dataset is available as <a href="../data/sales.json">sales.json</a> ({len(S)} rows). Spot a missing sale or an error? Corrections are welcome.</p></div></section>'''
 w('about/index.html',page('About & methodology · Comic Art Index','How Comic Art Index sources and verifies prime-era comic art sale prices.',about,1,'About'))
+B='https://comicartindex.com/'
+urls=['','sales/','artists/','about/']+[f'artists/{slug(a)}/' for a in arts]
+open(f'{R}/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{B}{u}</loc></url>\n' for u in urls)+'</urlset>\n')
+open(f'{R}/robots.txt','w').write(f'User-agent: *\nAllow: /\nSitemap: {B}sitemap.xml\n')
 print(len(S),len(arts))

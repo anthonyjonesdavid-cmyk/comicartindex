@@ -73,6 +73,7 @@ table.board{width:100%;border-collapse:collapse;font-size:14px}
 .crumbs a{display:inline-flex;min-height:40px;align-items:center;font-weight:600}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
 .stats div{border:2px solid var(--ink);background:#fff;padding:10px;font-size:13px}
+.stats.s4{grid-template-columns:repeat(4,1fr)}@media(max-width:600px){.stats.s4{grid-template-columns:repeat(2,1fr)}}
 .stats b{display:block;font-family:var(--disp);color:var(--red);font-size:clamp(20px,5vw,30px);font-weight:400}
 .chart{border:2px solid var(--ink);background:#fff;padding:8px}.chart svg{width:100%;height:auto}
 .cap{font-size:12px;color:#555}

@@ -29,12 +29,13 @@ def page(title,desc,body,depth,cur=''):
 <p>Each free Friday issue covers the week's biggest 1985–1995 original art sales, with prices, links to the lots, and one deep dive.</p></div>
 <div class="kit"><script async data-uid="5e118f0c3a" src="https://unique-painter-8002.kit.com/5e118f0c3a/index.js"></script></div>
 </div></section>
-<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to Heritage Auctions (HA.com). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a></div></footer>
+<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to the auction house that sold them (Heritage Auctions or Hake&#x27;s). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a></div></footer>
 </body></html>'''
+def icred(r): return "Hake&#x27;s" if r.get('auction_house')=="Hake's" else 'Heritage Auctions (HA.com)'
 def card(r,p):
   lot=r.get('image_credit') or r['source']
   if r.get('image'):
-    th=f'<a class="thumb" href="{e(lot)}"><img loading="lazy" src="{p}{r["image"]}" alt="{e(r["credit"]+", "+r["title"])} original art"></a><div class="credit">Image: <a href="{e(lot)}">Heritage Auctions (HA.com)</a></div>'
+    th=f'<a class="thumb" href="{e(lot)}"><img loading="lazy" src="{p}{r["image"]}" alt="{e(r["credit"]+", "+r["title"])} original art"></a><div class="credit">Image: <a href="{e(lot)}">{icred(r)}</a></div>'
   else: th=f'<div class="thumb noimg">{e(r["page_type"])}</div>'
   return f'''<article class="card"><span class="tag">{e(r["page_type"])}</span>{th}<div class="body"><div class="price">{money(r["price"])}</div><h3>{e(r["title"])}</h3><div class="meta"><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a> · {e(r["publisher"])}, {r["year"]}</div><div class="meta">Sold {e(r["auction_house"])}, {fdate(r["sale_date"])}</div><a class="view" href="{e(lot)}">View sale →</a></div></article>'''
 def table(rows,p,rank=False,tid=''):
@@ -66,7 +67,7 @@ total=sum(r['price'] for r in S)
 recent=sorted(S,key=lambda r:(r['sale_date'],r['price']),reverse=True)[:8]
 withimg=[r for r in S if r.get('image')]
 pol=[x for x in withimg if x['image'].startswith('img/ha-7470-')][:2]
-herof=''.join(f'<figure class="pol p{i}"><a href="{e(r["image_credit"])}"><img src="{r["image"]}" alt="{e(r["credit"]+", "+r["title"])} original art"></a><figcaption>{money(r["price"])} · {e(r["title"])}<br><small>Image: Heritage Auctions (HA.com)</small></figcaption></figure>' for i,r in enumerate(pol))
+herof=''.join(f'<figure class="pol p{i}"><a href="{e(r["image_credit"])}"><img src="{r["image"]}" alt="{e(r["credit"]+", "+r["title"])} original art"></a><figcaption>{money(r["price"])} · {e(r["title"])}<br><small>Image: {icred(r)}</small></figcaption></figure>' for i,r in enumerate(pol))
 pills=''.join(f'<a class="pill" href="artists/{slug(a)}/">{e(a)}</a>' for a in FEATURED if a in by)
 home=f'''<div class="hero"><div class="wrap"><div class="herotxt">
 <h1>What 80s &amp; 90s <span>comic art</span> actually sells for.</h1>
@@ -118,7 +119,7 @@ about=f'''<section><div class="wrap prose"><div class="sh"><h1>About &amp; metho
 <p><b>Comic Art Index</b> is a free price guide for original comic art from the "prime era," roughly 1985 to 1995: the years of Frank Miller's Dark Knight, Todd McFarlane's Spider-Man, Jim Lee's X-Men and the early Image boom.</p>
 <h2>What counts</h2><ul><li>Original art (covers, interior pages, splashes, spreads) created between 1985 and 1995.</li><li>Sales that were publicly reported, with the price, the venue, and a date.</li><li>Every row links to the page we checked when adding it. No estimated, asking, or invented prices.</li></ul>
 <h2>How prices are reported</h2><ul><li>Auction prices are shown as reported by the source. Heritage and ComicConnect results generally include the buyer's premium.</li><li>Rows from Heritage auction #7470 (Sept 25–27, 2026) are dated to the auction's closing day; the exact session day for each lot may differ by a day or two.</li><li>The Uncanny X-Men #268 cover sale is dated to the CBR report (Dec 4, 2020).</li><li>The Dark Knight Returns Joker spread is dated to Heritage's Oct 6–8, 2023 event.</li></ul>
-<h2>Images</h2><p>We show only small, credited thumbnails, each linked to its Heritage Auctions (HA.com) listing. All artwork is © its creators and publishers.</p>
+<h2>Images</h2><p>We show only small, credited thumbnails, each credited to and linked to its auction listing at Heritage Auctions (HA.com) or Hake&#x27;s. All artwork is © its creators and publishers.</p>
 <h2>Sources ({len(srcs)})</h2><ul>{sl_}</ul>
 <h2>Data</h2><p>The full dataset is available as <a href="../data/sales.json">sales.json</a> ({len(S)} rows). Spot a missing sale or an error? Corrections are welcome.</p></div></section>'''
 w('about/index.html',page('About & methodology · Comic Art Index','How Comic Art Index sources and verifies prime-era comic art sale prices.',about,1,'About'))

@@ -87,3 +87,4 @@ table.board{width:100%;border-collapse:collapse;font-size:14px}
 @media(min-width:900px){.band .wrap{grid-template-columns:1.3fr 1fr}}
 footer{background:var(--ink);color:#bbb;font-size:12px;padding:18px 0 calc(18px + env(safe-area-inset-bottom))}
 footer a{color:var(--yel)}
+.sponsor{margin:14px 0;border:3px solid var(--ink);background:#fff;display:flex;align-items:center;gap:8px 12px;padding:8px 12px;flex-wrap:wrap}.sponsor span{background:var(--red);color:#fff;font-family:var(--disp);font-style:italic;text-transform:uppercase;padding:2px 10px;border:2px solid var(--ink)}.sponsor a{margin-left:auto;font-weight:800}

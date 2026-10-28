@@ -7,6 +7,9 @@ for r in S:
 json.dump(S,open(f'{R}/data/sales.json','w'),indent=1,ensure_ascii=False)
 def sh(t,link='',lt='',tag='h2'): return f'<div class="sh"><{tag}>{t}</{tag}><span class="rule"></span>'+(f'<a class="more" href="{link}">{lt} →</a>' if link else '')+'</div>'
 e=html.escape
+from og import ogimg
+XH='CHILLHOP23'
+def sponsor(p): return f'<aside class="sponsor"><span>Sponsor</span><b>Your gallery here. Reach Prime Era collectors.</b><a href="{p}advertise/">Advertise →</a></aside>'
 def money(p): return '$'+format(int(round(p)),',') if p==int(p) else '$'+format(p,',.2f')
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 def fdate(d):
@@ -14,12 +17,13 @@ def fdate(d):
 FEATURED=['Jim Lee','Todd McFarlane','Frank Miller','Rob Liefeld','Dan Jurgens','Arthur Adams','Sam Kieth','Mike Mignola','Bill Sienkiewicz','John Romita Jr.','George Perez','Ron Lim']
 by={}
 for r in S: by.setdefault(r['artist'],[]).append(r)
-def page(title,desc,body,depth,cur=''):
+def page(title,desc,body,depth,cur='',og='img/og/default.png',url=''):
   p='../'*depth
   nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('About','about/'),('Free newsletter','#newsletter')]
   navh=''.join(f'<a href="{"" if u.startswith("#") else p}{u}"{" aria-current=page" if cur==n else ""}{" class=nl" if u.startswith("#") else ""}>{n}</a>' for n,u in nav)
   return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Comic Art Index"><meta property="og:url" content="https://comicartindex.com/{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="https://comicartindex.com/{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="https://comicartindex.com/{og}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=4"></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="36" height="36"><span>Comic Art Index</span></a><nav class="main" aria-label="Main">{navh}</nav></div></header>
@@ -29,7 +33,7 @@ def page(title,desc,body,depth,cur=''):
 <p>Each free Friday issue covers the week's biggest 1985–1995 original art sales, with prices, links to the lots, and one deep dive.</p></div>
 <div class="kit"><script async data-uid="5e118f0c3a" src="https://unique-painter-8002.kit.com/5e118f0c3a/index.js"></script></div>
 </div></section>
-<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to the auction house that sold them (Heritage Auctions or Hake&#x27;s). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a></div></footer>
+<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to the auction house that sold them (Heritage Auctions or Hake&#x27;s). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a> · <a href="{p}advertise/">Advertise</a></div></footer>
 </body></html>'''
 def icred(r): return "Hake&#x27;s" if r.get('auction_house')=="Hake's" else 'Heritage Auctions (HA.com)'
 def card(r,p):
@@ -85,11 +89,14 @@ q.addEventListener('input',async()=>{{if(!D)D=await (await fetch('data/sales.jso
 const m=D.filter(r=>[r.artist,r.credit,r.title,r.publisher,r.page_type,String(r.year)].join(' ').toLowerCase().includes(t));
 h.innerHTML='<b>'+m.length+' match'+(m.length==1?'':'es')+'</b>'+m.slice(0,5).map(r=>'<div class=hit><b>$'+Math.round(r.price).toLocaleString()+'</b> · '+r.credit+' · '+r.title+'</div>').join('')+(m.length>5?'<div><a href="sales/?q='+encodeURIComponent(q.value)+'">See all '+m.length+' →</a></div>':'')}});
 </script>'''
-w('index.html',page('Comic Art Index · What prime-era comic art sells for','Free, sourced sale prices for 1985–1995 original comic art: Jim Lee, Todd McFarlane, Frank Miller, Rob Liefeld and more.',home,0,'Home'))
+ld=max(r['sale_date'] for r in S); lo_=(datetime.date.fromisoformat(ld)-datetime.timedelta(days=6)).isoformat()
+wk=sorted([r for r in S if lo_<=r['sale_date']<=ld and r.get('image')],key=lambda r:-r['price'])
+hog=ogimg('home',wk[0]['image'],"This week's #1 sale",'Prime Era original art, 1985–1995','#1',money(wk[0]['price']),f"{wk[0]['credit']} · {wk[0]['title']}<br>{wk[0]['auction_house']}, {fdate(wk[0]['sale_date'])} · {len(S)} sales tracked") if wk else 'img/og/default.png'
+w('index.html',page('Comic Art Index · What prime-era comic art sells for','Free, sourced sale prices for 1985–1995 original comic art: Jim Lee, Todd McFarlane, Frank Miller, Rob Liefeld and more.',home,0,'Home',og=hog))
 types=sorted(set(r['page_type'] for r in S))
 sales=f'''<section><div class="wrap"><div class="sh"><h1>All sales:</h1><span class="rule"></span></div><p class="meta">Every verified 1985–1995 original art sale in the index, with a link to the source we checked.</p>
 <div class="filters"><input id="f" placeholder="Search artist, book, publisher…" aria-label="Search"><select id="t" aria-label="Type"><option value="">All types</option>{"".join(f"<option>{e(x)}</option>" for x in types)}</select><select id="o" aria-label="Sort"><option value="p">Highest price</option><option value="d">Newest sale</option><option value="y">Art year</option></select></div>
-<p class="count" id="n"></p><div id="tbl">{table(S,"../")}</div>
+{sponsor("../")}<p class="count" id="n"></p><div id="tbl">{table(S,"../")}</div>
 <div class="sh" id="top"><h2>Top 25 all time:</h2><span class="rule"></span></div>{table(S[:25],"../",rank=True)}</div></section>
 <script>
 const D={json.dumps([[r['artist'],r['credit'],r['title'],r['publisher'],r['page_type'],r['year'],r['price'],r['sale_date'],r['auction_house'],r['source']] for r in S],ensure_ascii=False)};
@@ -101,17 +108,19 @@ m.sort((a,b)=>o.value=='p'?b[6]-a[6]:o.value=='d'?b[7].localeCompare(a[7]):a[5]-
 tb.innerHTML='<div class="tablewrap"><table class="board"><thead><tr><th>Artwork</th><th class="hide-s">Type</th><th class="hide-s">Sold</th><th>Price</th></tr></thead><tbody>'+m.map(r=>'<tr><td><b><a href="../artists/'+sl(r[0])+'/">'+es(r[1])+'</a></b><br>'+es(r[2])+' <span class="meta">('+es(r[3])+', '+r[5]+')</span><div class="meta">'+es(r[8])+' · <a href="'+es(r[9])+'">source</a></div></td><td class="hide-s">'+es(r[4])+'</td><td class="hide-s">'+fd(r[7])+'</td><td class="num">$'+r[6].toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>'}}
 const U=new URLSearchParams(location.search);f.value=U.get('q')||'';if(U.get('o'))o.value=U.get('o');[f,t,o].forEach(x=>x.addEventListener('input',go));go();
 </script>'''
-w('sales/index.html',page('All sales · Comic Art Index','Searchable table of verified prime-era original comic art sales.',sales,1,'All sales'))
+w('sales/index.html',page('All sales · Comic Art Index','Searchable table of verified prime-era original comic art sales.',sales,1,'All sales',url='sales/'))
 arts=sorted(by,key=lambda a:-sum(r['price'] for r in by[a]))
 al=''.join(f'<a class="atile" href="{slug(a)}/"><h3>{e(a)}</h3><div class="meta">{len(by[a])} sale{"s" if len(by[a])>1 else ""} · top {money(max(r["price"] for r in by[a]))}</div></a>' for a in arts)
-w('artists/index.html',page('Original Comic Art Prices by Artist | Comic Art Index',f'Original comic art sale prices for {len(arts)} artists of the 1985–1995 prime era, from verified public auction results.',f'<section><div class="wrap"><div class="sh"><h1>Artists:</h1><span class="rule"></span></div><div class="grid g3">{al}</div></div></section>',1,'Artists'))
+w('artists/index.html',page('Original Comic Art Prices by Artist | Comic Art Index',f'Original comic art sale prices for {len(arts)} artists of the 1985–1995 prime era, from verified public auction results.',f'<section><div class="wrap"><div class="sh"><h1>Artists:</h1><span class="rule"></span></div><div class="grid g3">{al}</div></div></section>',1,'Artists',url='artists/'))
 for a in arts:
   rs=sorted(by[a],key=lambda r:-r['price'])
   b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All artists</a></div><div class="sh"><h1>{e(a)}</h1><span class="rule"></span></div>
 <div class="stats s4"><div><b>{len(rs)}</b>sale{"s" if len(rs)>1 else ""} tracked</div><div><b>{money(rs[-1]["price"])}</b>lowest</div><div><b>{money(rs[0]["price"])}</b>highest</div><div><b>{money(sum(r["price"] for r in rs))}</b>total</div></div>
-<h2 class=sub>Price chart</h2>{chart(rs)}
+{sponsor('../../')}<h2 class=sub>Price chart</h2>{chart(rs)}
 <h2 class=sub>Sales</h2>{"<div class='grid g4' style='margin-bottom:20px'>"+"".join(card(r,"../../") for r in rs if r.get("image"))+"</div>" if any(r.get("image") for r in rs) else ""}{table(rs,"../../")}</div></section>'''
-  w(f'artists/{slug(a)}/index.html',page(f'{a} Original Comic Art Prices | Comic Art Index',f'{a} original comic art prices: {len(rs)} verified auction sale{"s" if len(rs)>1 else ""} from 1985–1995 work, '+(f'ranging {money(rs[-1]["price"])} to {money(rs[0]["price"])}' if len(rs)>1 else f'sold for {money(rs[0]["price"])}')+', with links to each lot.',b,2,'Artists'))
+  ti=[r for r in rs if r.get('image')]
+  aog=ogimg('a-'+slug(a),ti[0]['image'],e(a),'Original comic art prices',f'{len(rs)} SALE'+('S' if len(rs)>1 else ''),money(rs[0]['price']) if len(rs)==1 else money(rs[-1]['price'])+'–'+money(rs[0]['price']),e(ti[0]['title'])+f" · {ti[0]['auction_house']}, {fdate(ti[0]['sale_date'])}") if ti else 'img/og/default.png'
+  w(f'artists/{slug(a)}/index.html',page(f'{a} Original Comic Art Prices | Comic Art Index',f'{a} original comic art prices: {len(rs)} verified auction sale{"s" if len(rs)>1 else ""} from 1985–1995 work, '+(f'ranging {money(rs[-1]["price"])} to {money(rs[0]["price"])}' if len(rs)>1 else f'sold for {money(rs[0]["price"])}')+', with links to each lot.',b,2,'Artists',og=aog,url=f'artists/{slug(a)}/'))
 srcs={}
 for r in S: srcs.setdefault(r['source'],[r['source_name'],0]); srcs[r['source']][1]+=1
 sl_=''.join(f'<li><a href="{e(u)}">{e(n)}</a> — {c} sale{"s" if c>1 else ""}<br><span class="meta">{e(u)}</span></li>' for u,(n,c) in sorted(srcs.items(),key=lambda x:-x[1][1]))
@@ -122,9 +131,17 @@ about=f'''<section><div class="wrap prose"><div class="sh"><h1>About &amp; metho
 <h2>Images</h2><p>We show only small, credited thumbnails, each credited to and linked to its auction listing at Heritage Auctions (HA.com) or Hake&#x27;s. All artwork is © its creators and publishers.</p>
 <h2>Sources ({len(srcs)})</h2><ul>{sl_}</ul>
 <h2>Data</h2><p>The full dataset is available as <a href="../data/sales.json">sales.json</a> ({len(S)} rows). Spot a missing sale or an error? Corrections are welcome.</p></div></section>'''
-w('about/index.html',page('About & methodology · Comic Art Index','How Comic Art Index sources and verifies prime-era comic art sale prices.',about,1,'About'))
+w('about/index.html',page('About & methodology · Comic Art Index','How Comic Art Index sources and verifies prime-era comic art sale prices.',about,1,'About',url='about/'))
+adv=f'''<section><div class="wrap prose"><div class="sh"><h1>Advertise with Comic Art Index</h1><span class="rule"></span></div>
+<p>Comic Art Index tracks verified auction prices for 1985–1995 ("Prime Era") original comic art, and sends a free newsletter every Friday with the week's top sales.</p>
+<h2>Who reads it</h2><ul><li>Collectors of original pages, covers and splashes from 1985–1995</li><li>Buyers researching what an artist's work actually sells for before they bid</li><li>Dealers and consignors watching the market week to week</li></ul>
+<p class="meta">We're new and growing. We'd rather tell you that than quote numbers we don't have.</p>
+<h2>Available spots</h2><ul><li><b>Newsletter sponsor:</b> one slim sponsor box in the Friday issue.</li><li><b>Site sponsor box:</b> a slim "Sponsor" box on the sales and artist pages.</li><li><b>Artist page sponsor:</b> your box on the page for the artist you deal in.</li></ul>
+<p class="meta">One sponsor per spot, always clearly labeled "Sponsor". Sponsors never affect prices or rankings.</p>
+<h2>Get in touch</h2><p>Message us on X at <a href="https://x.com/{XH}">@{XH}</a>, or subscribe to the free newsletter below and reply to any issue.</p></div></section>'''
+w('advertise/index.html',page('Advertise · Comic Art Index','Sponsor spots on Comic Art Index and its free Friday newsletter, reaching collectors of 1985–1995 original comic art.',adv,1,url='advertise/'))
 B='https://comicartindex.com/'
-urls=['','sales/','artists/','about/']+[f'artists/{slug(a)}/' for a in arts]
+urls=['','sales/','artists/','about/','advertise/']+[f'artists/{slug(a)}/' for a in arts]
 open(f'{R}/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{B}{u}</loc></url>\n' for u in urls)+'</urlset>\n')
 open(f'{R}/robots.txt','w').write(f'User-agent: *\nAllow: /\nSitemap: {B}sitemap.xml\n')
 print(len(S),len(arts))

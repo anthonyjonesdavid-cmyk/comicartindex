@@ -138,7 +138,7 @@ adv=f'''<section><div class="wrap prose"><div class="sh"><h1>Advertise with Comi
 <p class="meta">We're new and growing. We'd rather tell you that than quote numbers we don't have.</p>
 <h2>Available spots</h2><ul><li><b>Newsletter sponsor:</b> one slim sponsor box in the Friday issue.</li><li><b>Site sponsor box:</b> a slim "Sponsor" box on the sales and artist pages.</li><li><b>Artist page sponsor:</b> your box on the page for the artist you deal in.</li></ul>
 <p class="meta">One sponsor per spot, always clearly labeled "Sponsor". Sponsors never affect prices or rankings.</p>
-<h2>Get in touch</h2><p>Message us on X at <a href="https://x.com/{XH}">@{XH}</a>, or subscribe to the free newsletter below and reply to any issue.</p></div></section>'''
+<h2>Get in touch</h2><p>Email <a href="mailto:hello@comicartindex.com">hello@comicartindex.com</a> or message us on X at <a href="https://x.com/{XH}">@{XH}</a>. You can also subscribe to the free newsletter below and reply to any issue.</p></div></section>'''
 w('advertise/index.html',page('Advertise · Comic Art Index','Sponsor spots on Comic Art Index and its free Friday newsletter, reaching collectors of 1985–1995 original comic art.',adv,1,url='advertise/'))
 B='https://comicartindex.com/'
 urls=['','sales/','artists/','about/','advertise/']+[f'artists/{slug(a)}/' for a in arts]

@@ -4,6 +4,12 @@ S=json.load(open(f'{R}/data/sales.json'))
 HI=json.load(open(f'{R}/data/heritage_images.json'))
 for r in S:
   if r['title'] in HI and not r.get('image'): r['image'],r['image_credit']=HI[r['title']]
+def _sl(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
+_seen=set()
+for r in S:
+  b=_sl(r['title']+' '+r['artist'])[:90].strip('-'); k=b
+  if k in _seen: k=f"{b}-{r['id']}"
+  _seen.add(k); r['slug']=k
 json.dump(S,open(f'{R}/data/sales.json','w'),indent=1,ensure_ascii=False)
 def sh(t,link='',lt='',tag='h2'): return f'<div class="sh"><{tag}>{t}</{tag}><span class="rule"></span>'+(f'<a class="more" href="{link}">{lt} →</a>' if link else '')+'</div>'
 e=html.escape
@@ -17,15 +23,15 @@ def fdate(d):
 FEATURED=['Jim Lee','Todd McFarlane','Frank Miller','Rob Liefeld','Dan Jurgens','Arthur Adams','Sam Kieth','Mike Mignola','Bill Sienkiewicz','John Romita Jr.','George Perez','Ron Lim']
 by={}
 for r in S: by.setdefault(r['artist'],[]).append(r)
-def page(title,desc,body,depth,cur='',og='img/og/default.png',url=''):
+def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogtype='website'):
   p='../'*depth
-  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('About','about/'),('Free newsletter','#newsletter')]
+  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('Characters','characters/'),('About','about/'),('Free newsletter','#newsletter')]
   navh=''.join(f'<a href="{"" if u.startswith("#") else p}{u}"{" aria-current=page" if cur==n else ""}{" class=nl" if u.startswith("#") else ""}>{n}</a>' for n,u in nav)
   return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Comic Art Index"><meta property="og:url" content="https://comicartindex.com/{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="https://comicartindex.com/{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="https://comicartindex.com/{og}">
+<meta property="og:type" content="{ogtype}"><link rel="canonical" href="https://comicartindex.com/{url}"><meta property="og:site_name" content="Comic Art Index"><meta property="og:url" content="https://comicartindex.com/{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="https://comicartindex.com/{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="https://comicartindex.com/{og}">{head}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=4"></head><body>
+<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=5"></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="36" height="36"><span>Comic Art Index</span></a><nav class="main" aria-label="Main">{navh}</nav></div></header>
 <main>{body}</main>
 <section class="band" id="newsletter"><div class="wrap">
@@ -41,11 +47,11 @@ def card(r,p):
   if r.get('image'):
     th=f'<a class="thumb" href="{e(lot)}"><img loading="lazy" src="{p}{r["image"]}" alt="{e(r["credit"]+", "+r["title"])} original art"></a><div class="credit">Image: <a href="{e(lot)}">{icred(r)}</a></div>'
   else: th=f'<div class="thumb noimg">{e(r["page_type"])}</div>'
-  return f'''<article class="card"><span class="tag">{e(r["page_type"])}</span>{th}<div class="body"><div class="price">{money(r["price"])}</div><h3>{e(r["title"])}</h3><div class="meta"><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a> · {e(r["publisher"])}, {r["year"]}</div><div class="meta">Sold {e(r["auction_house"])}, {fdate(r["sale_date"])}</div><a class="view" href="{e(lot)}">View sale →</a></div></article>'''
+  return f'''<article class="card"><span class="tag">{e(r["page_type"])}</span>{th}<div class="body"><div class="price">{money(r["price"])}</div><h3><a href="{p}sales/{r["slug"]}/">{e(r["title"])}</a></h3><div class="meta"><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a> · {e(r["publisher"])}, {r["year"]}</div><div class="meta">Sold {e(r["auction_house"])}, {fdate(r["sale_date"])}</div><a class="view" href="{e(lot)}">View sale →</a></div></article>'''
 def table(rows,p,rank=False,tid=''):
   h=f'<div class="tablewrap"><table class="board"{" id="+tid if tid else ""}><thead><tr>{"<th>#</th>" if rank else ""}<th>Artwork</th><th class="hide-s">Type</th><th class="hide-s">Sold</th><th>Price</th></tr></thead><tbody>'
   for i,r in enumerate(rows):
-    h+=f'<tr>{f"<td class=rank>{i+1}</td>" if rank else ""}<td><b><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></b><br>{e(r["title"])} <span class="meta">({e(r["publisher"])}, {r["year"]})</span><div class="meta">{e(r["auction_house"])} · <a href="{e(r["source"])}">source</a></div></td><td class="hide-s">{e(r["page_type"])}</td><td class="hide-s">{fdate(r["sale_date"])}</td><td class="num">{money(r["price"])}</td></tr>'
+    h+=f'<tr>{f"<td class=rank>{i+1}</td>" if rank else ""}<td><b><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></b><br><a href="{p}sales/{r["slug"]}/">{e(r["title"])}</a> <span class="meta">({e(r["publisher"])}, {r["year"]})</span><div class="meta">{e(r["auction_house"])} · <a href="{e(r["source"])}">source</a></div></td><td class="hide-s">{e(r["page_type"])}</td><td class="hide-s">{fdate(r["sale_date"])}</td><td class="num">{money(r["price"])}</td></tr>'
   return h+'</tbody></table></div>'
 def chart(rows):
   W,H,pl,pb=640,280,64,34
@@ -87,7 +93,7 @@ home=f'''<div class="hero"><div class="wrap"><div class="herotxt">
 const P=location.pathname.replace(/[^/]*$/,'');let D=null;const q=document.getElementById('q'),h=document.getElementById('hits');
 q.addEventListener('input',async()=>{{if(!D)D=await (await fetch('data/sales.json')).json();const t=q.value.trim().toLowerCase();if(t.length<2){{h.innerHTML='';return}}
 const m=D.filter(r=>[r.artist,r.credit,r.title,r.publisher,r.page_type,String(r.year)].join(' ').toLowerCase().includes(t));
-h.innerHTML='<b>'+m.length+' match'+(m.length==1?'':'es')+'</b>'+m.slice(0,5).map(r=>'<div class=hit><b>$'+Math.round(r.price).toLocaleString()+'</b> · '+r.credit+' · '+r.title+'</div>').join('')+(m.length>5?'<div><a href="sales/?q='+encodeURIComponent(q.value)+'">See all '+m.length+' →</a></div>':'')}});
+h.innerHTML='<b>'+m.length+' match'+(m.length==1?'':'es')+'</b>'+m.slice(0,5).map(r=>'<div class=hit><a href="sales/'+r.slug+'/"><b>$'+Math.round(r.price).toLocaleString()+'</b> · '+r.credit+' · '+r.title+'</a></div>').join('')+(m.length>5?'<div><a href="sales/?q='+encodeURIComponent(q.value)+'">See all '+m.length+' →</a></div>':'')}});
 </script>'''
 ld=max(r['sale_date'] for r in S); lo_=(datetime.date.fromisoformat(ld)-datetime.timedelta(days=6)).isoformat()
 wk=sorted([r for r in S if lo_<=r['sale_date']<=ld and r.get('image')],key=lambda r:-r['price'])
@@ -99,13 +105,13 @@ sales=f'''<section><div class="wrap"><div class="sh"><h1>All sales:</h1><span cl
 {sponsor("../")}<p class="count" id="n"></p><div id="tbl">{table(S,"../")}</div>
 <div class="sh" id="top"><h2>Top 25 all time:</h2><span class="rule"></span></div>{table(S[:25],"../",rank=True)}</div></section>
 <script>
-const D={json.dumps([[r['artist'],r['credit'],r['title'],r['publisher'],r['page_type'],r['year'],r['price'],r['sale_date'],r['auction_house'],r['source']] for r in S],ensure_ascii=False)};
+const D={json.dumps([[r['artist'],r['credit'],r['title'],r['publisher'],r['page_type'],r['year'],r['price'],r['sale_date'],r['auction_house'],r['source'],r['slug']] for r in S],ensure_ascii=False)};
 const f=document.getElementById('f'),t=document.getElementById('t'),o=document.getElementById('o'),n=document.getElementById('n'),tb=document.getElementById('tbl');
 const es=s=>String(s).replace(/[&<>"]/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}})[c]);const sl=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('en-US',{{month:'short',day:'numeric',year:'numeric'}});
 function go(){{const q=f.value.trim().toLowerCase();let m=D.filter(r=>(!t.value||r[4]==t.value)&&(!q||r.slice(0,6).join(' ').toLowerCase().includes(q)));
 m.sort((a,b)=>o.value=='p'?b[6]-a[6]:o.value=='d'?b[7].localeCompare(a[7]):a[5]-b[5]);n.textContent=m.length+' sale'+(m.length==1?'':'s')+' · $'+Math.round(m.reduce((s,r)=>s+r[6],0)).toLocaleString()+' total';
-tb.innerHTML='<div class="tablewrap"><table class="board"><thead><tr><th>Artwork</th><th class="hide-s">Type</th><th class="hide-s">Sold</th><th>Price</th></tr></thead><tbody>'+m.map(r=>'<tr><td><b><a href="../artists/'+sl(r[0])+'/">'+es(r[1])+'</a></b><br>'+es(r[2])+' <span class="meta">('+es(r[3])+', '+r[5]+')</span><div class="meta">'+es(r[8])+' · <a href="'+es(r[9])+'">source</a></div></td><td class="hide-s">'+es(r[4])+'</td><td class="hide-s">'+fd(r[7])+'</td><td class="num">$'+r[6].toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>'}}
+tb.innerHTML='<div class="tablewrap"><table class="board"><thead><tr><th>Artwork</th><th class="hide-s">Type</th><th class="hide-s">Sold</th><th>Price</th></tr></thead><tbody>'+m.map(r=>'<tr><td><b><a href="../artists/'+sl(r[0])+'/">'+es(r[1])+'</a></b><br><a href="'+r[10]+'/">'+es(r[2])+'</a> <span class="meta">('+es(r[3])+', '+r[5]+')</span><div class="meta">'+es(r[8])+' · <a href="'+es(r[9])+'">source</a></div></td><td class="hide-s">'+es(r[4])+'</td><td class="hide-s">'+fd(r[7])+'</td><td class="num">$'+r[6].toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>'}}
 const U=new URLSearchParams(location.search);f.value=U.get('q')||'';if(U.get('o'))o.value=U.get('o');[f,t,o].forEach(x=>x.addEventListener('input',go));go();
 </script>'''
 w('sales/index.html',page('All sales · Comic Art Index','Searchable table of verified prime-era original comic art sales.',sales,1,'All sales',url='sales/'))
@@ -140,8 +146,9 @@ adv=f'''<section><div class="wrap prose"><div class="sh"><h1>Advertise with Comi
 <p class="meta">One sponsor per spot, always clearly labeled "Sponsor". Sponsors never affect prices or rankings.</p>
 <h2>Get in touch</h2><p>Email <a href="mailto:hello@comicartindex.com">hello@comicartindex.com</a> or message us on X at <a href="https://x.com/{XH}">@{XH}</a>. You can also subscribe to the free newsletter below and reply to any issue.</p></div></section>'''
 w('advertise/index.html',page('Advertise · Comic Art Index','Sponsor spots on Comic Art Index and its free Friday newsletter, reaching collectors of 1985–1995 original comic art.',adv,1,url='advertise/'))
+exec(open(f'{R}/tools/build_extra.py').read())
 B='https://comicartindex.com/'
-urls=['','sales/','artists/','about/','advertise/']+[f'artists/{slug(a)}/' for a in arts]
+urls=['','sales/','artists/','about/','advertise/']+[f'artists/{slug(a)}/' for a in arts]+EXTRA_URLS
 open(f'{R}/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{B}{u}</loc></url>\n' for u in urls)+'</urlset>\n')
 open(f'{R}/robots.txt','w').write(f'User-agent: *\nAllow: /\nSitemap: {B}sitemap.xml\n')
 print(len(S),len(arts))

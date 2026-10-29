@@ -13,7 +13,8 @@
   "source": "https://comicarttracker.com/auctions/top-prices",
   "source_name": "ComicArtTracker top prices",
   "date_approx": false,
-  "id": 1
+  "id": 1,
+  "slug": "batman-the-dark-knight-returns-1-frank-miller"
  },
  {
   "artist": "Dan Jurgens",
@@ -29,7 +30,8 @@
   "source": "https://comicarttracker.com/auctions/top-prices",
   "source_name": "ComicArtTracker top prices",
   "date_approx": false,
-  "id": 2
+  "id": 2,
+  "slug": "superman-75-death-of-superman-dan-jurgens"
  },
  {
   "artist": "Rob Liefeld",
@@ -45,7 +47,8 @@
   "source": "https://comicarttracker.com/auctions/top-prices",
   "source_name": "ComicArtTracker top prices",
   "date_approx": false,
-  "id": 3
+  "id": 3,
+  "slug": "the-new-mutants-98-first-deadpool-story-page-14-rob-liefeld"
  },
  {
   "artist": "Dan Jurgens",
@@ -61,7 +64,8 @@
   "source": "https://comicarttracker.com/auctions/top-prices",
   "source_name": "ComicArtTracker top prices",
   "date_approx": false,
-  "id": 4
+  "id": 4,
+  "slug": "superman-75-pages-25-27-28-triple-gatefold-splash-dan-jurgens"
  },
  {
   "artist": "Dan Jurgens",
@@ -77,7 +81,8 @@
   "source": "https://comicarttracker.com/auctions/top-prices",
   "source_name": "ComicArtTracker top prices",
   "date_approx": false,
-  "id": 5
+  "id": 5,
+  "slug": "superman-75-page-26-splash-dan-jurgens"
  },
  {
   "artist": "Todd McFarlane",
@@ -95,7 +100,8 @@
   "date_approx": false,
   "id": 6,
   "image": "img/mcfarlane-batman-423-cover.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/todd-mcfarlane-batman-423-cover-original-art-dc-1988-/a/7443-94047.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/todd-mcfarlane-batman-423-cover-original-art-dc-1988-/a/7443-94047.s",
+  "slug": "batman-423-todd-mcfarlane"
  },
  {
   "artist": "Todd McFarlane",
@@ -111,7 +117,8 @@
   "source": "https://bleedingcool.com/comics/todd-mcfarlane-amazing-spider-man-328-original-cover-art-sells-for-record-675250/",
   "source_name": "Bleeding Cool",
   "date_approx": false,
-  "id": 7
+  "id": 7,
+  "slug": "the-amazing-spider-man-328-todd-mcfarlane"
  },
  {
   "artist": "Frank Miller",
@@ -127,7 +134,8 @@
   "source": "https://www.overstreetaccess.com/frank-miller-dark-knight-returns-pages-reach-550k-at-heritage/",
   "source_name": "Overstreet Access",
   "date_approx": false,
-  "id": 8
+  "id": 8,
+  "slug": "batman-the-dark-knight-returns-joker-s-death-two-page-sequence-frank-miller"
  },
  {
   "artist": "Frank Miller",
@@ -143,7 +151,8 @@
   "source": "https://icv2.com/articles/comics/view/20019/miller-page-goes-448-125",
   "source_name": "ICv2",
   "date_approx": false,
-  "id": 9
+  "id": 9,
+  "slug": "batman-the-dark-knight-returns-3-page-10-batman-robin-splash-frank-miller"
  },
  {
   "artist": "Jim Lee",
@@ -160,7 +169,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 10,
   "image": "img/ha-7470-01.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/jim-lee-and-art-thibert-x-men-6-psylocke-and-sabretooth-cover-original-art-marvel-1992-/a/7470-94010.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/jim-lee-and-art-thibert-x-men-6-psylocke-and-sabretooth-cover-original-art-marvel-1992-/a/7470-94010.s",
+  "slug": "x-men-6-psylocke-and-sabretooth-cover-jim-lee"
  },
  {
   "artist": "Jim Lee",
@@ -178,7 +188,8 @@
   "date_approx": false,
   "id": 11,
   "image": "img/lee-uxm-271-p4.jpg",
-  "image_credit": "https://www.ha.com/itm/original-comic-art/jim-lee-and-scott-williams-uncanny-x-men-271-story-page-4-original-art-marvel-1990-/a/7270-94121.s"
+  "image_credit": "https://www.ha.com/itm/original-comic-art/jim-lee-and-scott-williams-uncanny-x-men-271-story-page-4-original-art-marvel-1990-/a/7270-94121.s",
+  "slug": "the-uncanny-x-men-271-story-page-4-jim-lee"
  },
  {
   "artist": "Todd McFarlane",
@@ -194,7 +205,8 @@
   "source": "https://archive.nytimes.com/artsbeat.blogs.nytimes.com/2012/07/27/collector-sense-tingling-comic-book-sale-yields-powerful-prices/",
   "source_name": "New York Times",
   "date_approx": false,
-  "id": 12
+  "id": 12,
+  "slug": "spider-man-1-todd-mcfarlane"
  },
  {
   "artist": "Jim Lee",
@@ -210,7 +222,8 @@
   "source": "https://www.cbr.com/jim-lee-uncanny-x-men-original-art-auctioned-300k/",
   "source_name": "CBR",
   "date_approx": true,
-  "id": 13
+  "id": 13,
+  "slug": "the-uncanny-x-men-268-jim-lee"
  },
  {
   "artist": "Frank Miller",
@@ -226,7 +239,8 @@
   "source": "https://artdaily.com/news/175930/Deadpool-s-debut-slices-up-the-record-books-as-Rob-Liefeld-s-original-art-from--New-Mutants--No--98-sells-for--960-000-",
   "source_name": "Artdaily (Heritage release)",
   "date_approx": false,
-  "id": 14
+  "id": 14,
+  "slug": "batman-the-dark-knight-returns-carrie-kelley-as-robin-story-page-frank-miller"
  },
  {
   "artist": "Jim Lee",
@@ -244,7 +258,8 @@
   "date_approx": false,
   "id": 15,
   "image": "img/lee-uxm-274-dps.jpg",
-  "image_credit": "https://www.ha.com/itm/original-comic-art/jim-lee-and-scott-williams-uncanny-x-men-274-double-page-spread-2-3-savage-land-original-art-marvel-1991-/a/7270-91037.s"
+  "image_credit": "https://www.ha.com/itm/original-comic-art/jim-lee-and-scott-williams-uncanny-x-men-274-double-page-spread-2-3-savage-land-original-art-marvel-1991-/a/7270-91037.s",
+  "slug": "the-uncanny-x-men-274-savage-land-double-page-spread-2-3-jim-lee"
  },
  {
   "artist": "Jim Lee",
@@ -262,7 +277,8 @@
   "date_approx": false,
   "id": 16,
   "image": "img/lee-wolverine-24-cover.jpg",
-  "image_credit": "https://www.ha.com/itm/original-comic-art/jim-lee-wolverine-24-cover-original-art-marvel-1990-/a/7270-91036.s"
+  "image_credit": "https://www.ha.com/itm/original-comic-art/jim-lee-wolverine-24-cover-original-art-marvel-1990-/a/7270-91036.s",
+  "slug": "wolverine-24-jim-lee"
  },
  {
   "artist": "Peter Laird",
@@ -279,7 +295,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 17,
   "image": "img/ha-7470-02.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/peter-laird-and-kevin-eastman-teenage-mutant-ninja-turtles-50-city-at-war-wraparound-cove/a/7470-94084.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/peter-laird-and-kevin-eastman-teenage-mutant-ninja-turtles-50-city-at-war-wraparound-cove/a/7470-94084.s",
+  "slug": "teenage-mutant-ninja-turtles-50-city-at-war-wraparound-cover-peter-laird"
  },
  {
   "artist": "Dave Stevens",
@@ -297,7 +314,8 @@
   "date_approx": false,
   "id": 95,
   "image": "img/ha-7474-01.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/splash-pages/dave-stevens-the-rocketeer-adventure-magazine-3-splash-page-27-original-art-dark-horse-19/a/7474-51022.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/splash-pages/dave-stevens-the-rocketeer-adventure-magazine-3-splash-page-27-original-art-dark-horse-19/a/7474-51022.s",
+  "slug": "the-rocketeer-adventure-magazine-3-splash-page-27-dave-stevens"
  },
  {
   "artist": "James O'Barr",
@@ -314,7 +332,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 18,
   "image": "img/ha-7470-03.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/james-o-barr-the-crow-4-cover-painting-original-art-caliber-press-1989-/a/7470-94016.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/james-o-barr-the-crow-4-cover-painting-original-art-caliber-press-1989-/a/7470-94016.s",
+  "slug": "the-crow-4-cover-painting-james-o-barr"
  },
  {
   "artist": "Richard Williams",
@@ -331,7 +350,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 19,
   "image": "img/ha-7470-04.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/richard-williams-mad-289-batman-cover-original-art-ec-1989-/a/7470-94130.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/richard-williams-mad-289-batman-cover-original-art-ec-1989-/a/7470-94130.s",
+  "slug": "mad-289-batman-cover-richard-williams"
  },
  {
   "artist": "Jean Giraud (Moebius)",
@@ -349,7 +369,8 @@
   "date_approx": false,
   "id": 96,
   "image": "img/ha-7474-02.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/illustrations/jean-giraud-moebius-iron-man-illustration-original-art-1989-pop-46-9-cac-12-5-cac-price-88200-/a/7474-51005.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/illustrations/jean-giraud-moebius-iron-man-illustration-original-art-1989-pop-46-9-cac-12-5-cac-price-88200-/a/7474-51005.s",
+  "slug": "iron-man-illustration-jean-giraud-moebius"
  },
  {
   "artist": "Charles Burns",
@@ -367,7 +388,8 @@
   "date_approx": false,
   "id": 97,
   "image": "img/ha-7474-03.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/charles-burns-big-baby-curse-of-the-molemen-cover-original-art-raw-books-and-graphics-1986-/a/7474-51001.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/charles-burns-big-baby-curse-of-the-molemen-cover-original-art-raw-books-and-graphics-1986-/a/7474-51001.s",
+  "slug": "big-baby-curse-of-the-molemen-cover-charles-burns"
  },
  {
   "artist": "Jim Lee",
@@ -384,7 +406,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 20,
   "image": "img/ha-7470-05.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/jim-lee-and-art-thibert-x-men-9-blue-team-story-page-1-original-art-marvel-1992-/a/7470-94011.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/jim-lee-and-art-thibert-x-men-9-blue-team-story-page-1-original-art-marvel-1992-/a/7470-94011.s",
+  "slug": "x-men-9-blue-team-story-page-1-jim-lee"
  },
  {
   "artist": "Kevin Maguire",
@@ -401,7 +424,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 21,
   "image": "img/ha-7470-06.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/kevin-maguire-and-joe-rubinstein-justice-league-international-24-cover-original-art-dc-19/a/7470-94094.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/kevin-maguire-and-joe-rubinstein-justice-league-international-24-cover-original-art-dc-19/a/7470-94094.s",
+  "slug": "justice-league-international-24-cover-kevin-maguire"
  },
  {
   "artist": "Erik Larsen",
@@ -418,7 +442,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 22,
   "image": "img/ha-7470-07.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/erik-larsen-spider-man-20-deathlok-story-page-3-original-art-marvel-1992-/a/7470-96063.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/erik-larsen-spider-man-20-deathlok-story-page-3-original-art-marvel-1992-/a/7470-96063.s",
+  "slug": "spider-man-20-deathlok-story-page-3-erik-larsen"
  },
  {
   "artist": "Kevin Eastman",
@@ -436,7 +461,8 @@
   "date_approx": false,
   "id": 98,
   "image": "img/hk-9807280.jpg",
-  "image_credit": "https://www.hakes.com/online-auctions/hakes-auctions/kevin-eastman-peter-laird-teenage-mutant-ninja-turtles-5-comic-book-page-original-art-9807280"
+  "image_credit": "https://www.hakes.com/online-auctions/hakes-auctions/kevin-eastman-peter-laird-teenage-mutant-ninja-turtles-5-comic-book-page-original-art-9807280",
+  "slug": "teenage-mutant-ninja-turtles-5-story-page-10-teaming-up-with-fugitoid-kevin-eastman"
  },
  {
   "artist": "Albert Uderzo",
@@ -454,7 +480,8 @@
   "date_approx": false,
   "id": 99,
   "image": "img/ha-7474-04.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/albert-uderzo-asterix-back-cover-original-art-les-editions-albert-rene-1989-91-/a/7474-51104.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/albert-uderzo-asterix-back-cover-original-art-les-editions-albert-rene-1989-91-/a/7474-51104.s",
+  "slug": "ast-rix-back-cover-albert-uderzo"
  },
  {
   "artist": "Jim Lee",
@@ -471,7 +498,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 23,
   "image": "img/ha-7470-08.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/splash-pages/jim-lee-and-scott-williams-x-men-5-team-x-first-appearance-issue-double-page-spread-11-12-o/a/7470-94009.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/splash-pages/jim-lee-and-scott-williams-x-men-5-team-x-first-appearance-issue-double-page-spread-11-12-o/a/7470-94009.s",
+  "slug": "x-men-5-team-x-first-appearance-issue-double-page-spread-11-12-jim-lee"
  },
  {
   "artist": "Todd McFarlane",
@@ -489,7 +517,8 @@
   "date_approx": false,
   "id": 100,
   "image": "img/hk-9807423.jpg",
-  "image_credit": "https://www.hakes.com/online-auctions/hakes-auctions/todd-mcfarlane-amazing-spider-man-302-comic-book-page-original-art-9807423"
+  "image_credit": "https://www.hakes.com/online-auctions/hakes-auctions/todd-mcfarlane-amazing-spider-man-302-comic-book-page-original-art-9807423",
+  "slug": "the-amazing-spider-man-302-story-page-todd-mcfarlane"
  },
  {
   "artist": "Todd McFarlane",
@@ -507,7 +536,8 @@
   "date_approx": false,
   "id": 101,
   "image": "img/hk-9807424.jpg",
-  "image_credit": "https://www.hakes.com/online-auctions/hakes-auctions/todd-mcfarlane-amazing-spider-man-304-comic-book-title-splash-page-original-art-9807424"
+  "image_credit": "https://www.hakes.com/online-auctions/hakes-auctions/todd-mcfarlane-amazing-spider-man-304-comic-book-title-splash-page-original-art-9807424",
+  "slug": "the-amazing-spider-man-304-title-splash-page-todd-mcfarlane"
  },
  {
   "artist": "Rob Liefeld",
@@ -524,7 +554,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 24,
   "image": "img/ha-7470-09.jpg",
-  "image_credit": "https://comics.ha.com/itm/a/7470-94092.s"
+  "image_credit": "https://comics.ha.com/itm/a/7470-94092.s",
+  "slug": "marvel-comics-presents-70-wolverine-and-ghost-rider-wraparound-cover-rob-liefeld"
  },
  {
   "artist": "Rick Veitch",
@@ -541,7 +572,8 @@
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 25,
   "image": "img/ha-7470-10.jpg",
-  "image_credit": "https://comics.ha.com/itm/a/7470-94129.s"
+  "image_credit": "https://comics.ha.com/itm/a/7470-94129.s",
+  "slug": "the-saga-of-the-swamp-thing-37-john-constantine-first-appearance-issue-story-page-19-rick"
  },
  {
   "artist": "Sam Kieth",
@@ -556,7 +588,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94076 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 26
+  "id": 26,
+  "slug": "sandman-3-john-constantine-story-page-3-sam-kieth"
  },
  {
   "artist": "Arthur Adams",
@@ -571,7 +604,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94029 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 27
+  "id": 27,
+  "slug": "longshot-4-she-hulk-story-page-14-arthur-adams"
  },
  {
   "artist": "Dave Gibbons",
@@ -586,7 +620,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94067 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 28
+  "id": 28,
+  "slug": "watchmen-5-story-page-2-dave-gibbons"
  },
  {
   "artist": "Earl Norem",
@@ -604,7 +639,8 @@
   "date_approx": false,
   "id": 102,
   "image": "img/ha-7474-05.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/earl-norem-the-savage-sword-of-conan-167-cover-painting-original-art-marvel-1989-/a/7474-51076.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/earl-norem-the-savage-sword-of-conan-167-cover-painting-original-art-marvel-1989-/a/7474-51076.s",
+  "slug": "the-savage-sword-of-conan-167-cover-painting-earl-norem"
  },
  {
   "artist": "Rob Liefeld",
@@ -619,7 +655,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94091 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 29
+  "id": 29,
+  "slug": "the-new-mutants-90-sabretooth-double-page-spread-2-3-rob-liefeld"
  },
  {
   "artist": "Jim Lee",
@@ -634,7 +671,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94086 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 30
+  "id": 30,
+  "slug": "the-uncanny-x-men-275-savage-land-story-page-22-jim-lee"
  },
  {
   "artist": "Todd McFarlane",
@@ -649,7 +687,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94097 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 31
+  "id": 31,
+  "slug": "the-amazing-spider-man-323-story-page-9-todd-mcfarlane"
  },
  {
   "artist": "Robert Crumb",
@@ -667,7 +706,8 @@
   "date_approx": false,
   "id": 103,
   "image": "img/ha-7474-06.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/robert-crumb-hup-2-mighty-power-fems-versus-the-horrible-homunculi-story-page-3-original/a/7474-51146.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/robert-crumb-hup-2-mighty-power-fems-versus-the-horrible-homunculi-story-page-3-original/a/7474-51146.s",
+  "slug": "hup-2-mighty-power-fems-versus-the-horrible-homunculi-story-page-3-robert-crumb"
  },
  {
   "artist": "Jim Lee",
@@ -682,7 +722,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94087 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 32
+  "id": 32,
+  "slug": "wildc-a-t-s-covert-action-teams-11-cover-jim-lee"
  },
  {
   "artist": "Rick Leonardi",
@@ -697,7 +738,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95082 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 33
+  "id": 33,
+  "slug": "the-new-mutants-78-freedom-force-and-hela-cover-rick-leonardi"
  },
  {
   "artist": "Bart Sears",
@@ -712,7 +754,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96097 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 34
+  "id": 34,
+  "slug": "wizard-the-comics-magazine-9-venom-cover-and-production-color-bart-sears"
  },
  {
   "artist": "Arthur Adams",
@@ -727,7 +770,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94030 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 35
+  "id": 35,
+  "slug": "x-men-annual-10-x-babies-story-page-15-arthur-adams"
  },
  {
   "artist": "Steven Hughes",
@@ -742,7 +786,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96051 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 36
+  "id": 36,
+  "slug": "lady-death-ii-between-heaven-hell-2-cover-steven-hughes"
  },
  {
   "artist": "John Buscema",
@@ -757,7 +802,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94040 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 37
+  "id": 37,
+  "slug": "the-avengers-265-cover-john-buscema"
  },
  {
   "artist": "Sam Kieth",
@@ -772,7 +818,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94077 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 38
+  "id": 38,
+  "slug": "marvel-comics-presents-106-ghost-rider-and-dr-strange-cover-sam-kieth"
  },
  {
   "artist": "Ron Lim",
@@ -787,7 +834,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96068 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 39
+  "id": 39,
+  "slug": "the-infinity-gauntlet-4-story-page-37-ron-lim"
  },
  {
   "artist": "Paul Neary",
@@ -802,7 +850,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95089 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 40
+  "id": 40,
+  "slug": "captain-america-320-cover-paul-neary"
  },
  {
   "artist": "Lynn Varley",
@@ -817,7 +866,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95130 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 41
+  "id": 41,
+  "slug": "printed-lines-batman-the-dark-knight-3-superman-story-page-35-production-color-lynn-varley"
  },
  {
   "artist": "Andy Kubert",
@@ -832,7 +882,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96057 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 42
+  "id": 42,
+  "slug": "x-men-22-story-page-1-andy-kubert"
  },
  {
   "artist": "Alex Saviuk",
@@ -847,7 +898,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96095 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 43
+  "id": 43,
+  "slug": "web-of-spider-man-60-cover-alex-saviuk"
  },
  {
   "artist": "Christian Debarre (Bar2)",
@@ -865,7 +917,8 @@
   "date_approx": false,
   "id": 104,
   "image": "img/ha-7474-07.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/christian-debarre-bar2-joe-bar-team-pitoyable-relique-1-story-page-43-original-art-vent/a/7474-51003.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/christian-debarre-bar2-joe-bar-team-pitoyable-relique-1-story-page-43-original-art-vent/a/7474-51003.s",
+  "slug": "joe-bar-team-pitoyable-relique-1-story-page-43-christian-debarre-bar2"
  },
  {
   "artist": "George Perez",
@@ -880,7 +933,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94105 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 44
+  "id": 44,
+  "slug": "showcase-93-11-cover-george-perez"
  },
  {
   "artist": "Joe Kubert",
@@ -895,7 +949,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96059 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 45
+  "id": 45,
+  "slug": "sgt-rock-14-enemy-ace-cover-joe-kubert"
  },
  {
   "artist": "Alan Davis",
@@ -910,7 +965,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95030 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 46
+  "id": 46,
+  "slug": "excalibur-special-edition-warwolves-story-page-7-alan-davis"
  },
  {
   "artist": "Kevin O'Neill",
@@ -925,7 +981,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95090 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 47
+  "id": 47,
+  "slug": "marshall-law-2-painted-splash-page-1-kevin-o-neill"
  },
  {
   "artist": "Kevin Eastman",
@@ -940,7 +997,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94058 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 48
+  "id": 48,
+  "slug": "teenage-mutant-ninja-turtles-7-story-page-24-kevin-eastman"
  },
  {
   "artist": "Rob Liefeld",
@@ -955,7 +1013,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94093 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 49
+  "id": 49,
+  "slug": "x-force-2-story-page-15-rob-liefeld"
  },
  {
   "artist": "Daniel Clowes",
@@ -970,7 +1029,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94141 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 50
+  "id": 50,
+  "slug": "eightball-16-like-a-weed-joe-story-page-1-daniel-clowes"
  },
  {
   "artist": "Will Eisner",
@@ -985,7 +1045,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95041 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 51
+  "id": 51,
+  "slug": "the-spirit-29-cover-will-eisner"
  },
  {
   "artist": "Larry Lieber",
@@ -1000,7 +1061,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95085 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 52
+  "id": 52,
+  "slug": "the-amazing-spider-man-annual-22-comic-strip-ad-illustration-larry-lieber"
  },
  {
   "artist": "Matt Wagner",
@@ -1015,7 +1077,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95131 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 53
+  "id": 53,
+  "slug": "mage-the-hero-discovered-8-story-page-20-matt-wagner"
  },
  {
   "artist": "Don Rosa",
@@ -1033,7 +1096,8 @@
   "date_approx": false,
   "id": 105,
   "image": "img/ha-7474-52394.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-20-original-art-gladstone-1995-/a/7474-52394.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-20-original-art-gladstone-1995-/a/7474-52394.s",
+  "slug": "walt-disney-giant-1-uncle-scrooge-story-page-20-2-items-don-rosa"
  },
  {
   "artist": "Larry Lieber",
@@ -1048,7 +1112,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95084 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 54
+  "id": 54,
+  "slug": "the-amazing-spider-man-274-secret-wars-ii-back-cover-illustration-larry-lieber"
  },
  {
   "artist": "George Perez",
@@ -1063,7 +1128,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96083 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 55
+  "id": 55,
+  "slug": "david-anthony-kraft-s-comics-interview-94-thanos-cover-illustration-george-perez"
  },
  {
   "artist": "Michael Zulli",
@@ -1078,7 +1144,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96112 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 56
+  "id": 56,
+  "slug": "taboo-5-again-complete-27-page-story-michael-zulli"
  },
  {
   "artist": "Don Rosa",
@@ -1096,7 +1163,8 @@
   "date_approx": false,
   "id": 106,
   "image": "img/ha-7474-52398.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-24-original-art-gladstone-1995-/a/7474-52398.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-24-original-art-gladstone-1995-/a/7474-52398.s",
+  "slug": "walt-disney-giant-1-uncle-scrooge-story-page-24-don-rosa"
  },
  {
   "artist": "Rand Holmes",
@@ -1111,7 +1179,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94146 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 57
+  "id": 57,
+  "slug": "death-rattle-17-slide-sinner-slide-complete-20-page-story-rand-holmes"
  },
  {
   "artist": "George Perez",
@@ -1126,7 +1195,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95093 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 58
+  "id": 58,
+  "slug": "action-comics-weekly-602-green-lantern-cover-george-perez"
  },
  {
   "artist": "Bill Sienkiewicz",
@@ -1141,7 +1211,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95118 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 59
+  "id": 59,
+  "slug": "elektra-assassin-2-story-page-7-bill-sienkiewicz"
  },
  {
   "artist": "Larry Stroman",
@@ -1156,7 +1227,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95122 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 60
+  "id": 60,
+  "slug": "classic-punisher-1-wraparound-cover-larry-stroman"
  },
  {
   "artist": "Don Rosa",
@@ -1174,7 +1246,8 @@
   "date_approx": false,
   "id": 107,
   "image": "img/ha-7474-52391.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-17-original-art-gladstone-1995-/a/7474-52391.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-17-original-art-gladstone-1995-/a/7474-52391.s",
+  "slug": "walt-disney-giant-1-uncle-scrooge-story-page-17-3-items-don-rosa"
  },
  {
   "artist": "Milo Manara",
@@ -1192,7 +1265,8 @@
   "date_approx": false,
   "id": 108,
   "image": "img/ha-7474-52262.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/illustrations/milo-manara-fantasex-scaglie-illustration-original-art-mondadori-1993-/a/7474-52262.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/illustrations/milo-manara-fantasex-scaglie-illustration-original-art-mondadori-1993-/a/7474-52262.s",
+  "slug": "fantasex-scaglie-illustration-milo-manara"
  },
  {
   "artist": "Robert Crumb",
@@ -1207,7 +1281,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95167 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 61
+  "id": 61,
+  "slug": "kafka-for-beginners-story-page-98-robert-crumb"
  },
  {
   "artist": "Brett Blevins",
@@ -1222,7 +1297,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96011 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 62
+  "id": 62,
+  "slug": "ghost-rider-35-cover-brett-blevins"
  },
  {
   "artist": "Kevin Eastman",
@@ -1237,7 +1313,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95040 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 63
+  "id": 63,
+  "slug": "teenage-mutant-ninja-turtles-illustration-kevin-eastman"
  },
  {
   "artist": "Gil Kane",
@@ -1252,7 +1329,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95058 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 64
+  "id": 64,
+  "slug": "the-green-lantern-corps-223-cover-gil-kane"
  },
  {
   "artist": "Ron Lim",
@@ -1267,7 +1345,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96069 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 65
+  "id": 65,
+  "slug": "the-infinity-gauntlet-6-story-page-39-ron-lim"
  },
  {
   "artist": "Jean-Yves Mitton",
@@ -1285,7 +1364,8 @@
   "date_approx": false,
   "id": 109,
   "image": "img/ha-7474-52301.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/jean-yves-mitton-spidey-guerres-secretes-secret-wars-66-cover-original-art-lug-1985-/a/7474-52301.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/jean-yves-mitton-spidey-guerres-secretes-secret-wars-66-cover-original-art-lug-1985-/a/7474-52301.s",
+  "slug": "spidey-guerres-secr-tes-secret-wars-66-cover-jean-yves-mitton"
  },
  {
   "artist": "Jose Luis Garcia-Lopez",
@@ -1300,7 +1380,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95049 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 66
+  "id": 66,
+  "slug": "dc-spotlight-1-back-cover-jose-luis-garcia-lopez"
  },
  {
   "artist": "Richard Corben",
@@ -1318,7 +1399,8 @@
   "date_approx": false,
   "id": 110,
   "image": "img/ha-7474-52103.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/richard-corben-horror-in-the-dark-4-story-page-3-original-art-fantagor-press-1991-/a/7474-52103.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/richard-corben-horror-in-the-dark-4-story-page-3-original-art-fantagor-press-1991-/a/7474-52103.s",
+  "slug": "horror-in-the-dark-4-story-page-3-richard-corben"
  },
  {
   "artist": "Mike Zeck",
@@ -1333,7 +1415,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94140 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 67
+  "id": 67,
+  "slug": "marvel-super-heroes-secret-wars-11-story-page-19-mike-zeck"
  },
  {
   "artist": "Glenn Fabry",
@@ -1348,7 +1431,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96034 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 68
+  "id": 68,
+  "slug": "hellblazer-80-cover-painting-glenn-fabry"
  },
  {
   "artist": "Ian Churchill",
@@ -1363,7 +1447,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96025 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 69
+  "id": 69,
+  "slug": "cable-26-cover-ian-churchill"
  },
  {
   "artist": "Jean-Claude Gal",
@@ -1381,7 +1466,8 @@
   "date_approx": false,
   "id": 111,
   "image": "img/ha-7474-52167.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/jean-claude-gal-arn-le-triomphe-d-arn-2-story-page-36-original-art-les-humanoides-associe/a/7474-52167.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/jean-claude-gal-arn-le-triomphe-d-arn-2-story-page-36-original-art-les-humanoides-associe/a/7474-52167.s",
+  "slug": "arn-le-triomphe-d-arn-2-story-page-36-jean-claude-gal"
  },
  {
   "artist": "Rand Holmes",
@@ -1396,7 +1482,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 94147 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 70
+  "id": 70,
+  "slug": "death-rattle-17-cover-rand-holmes"
  },
  {
   "artist": "Denys Cowan",
@@ -1411,7 +1498,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96028 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 71
+  "id": 71,
+  "slug": "deathlok-7-cover-denys-cowan"
  },
  {
   "artist": "Don Rosa",
@@ -1429,7 +1517,8 @@
   "date_approx": false,
   "id": 112,
   "image": "img/ha-7474-52395.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-21-original-art-gladstone-1995-/a/7474-52395.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/don-rosa-walt-disney-giant-1-uncle-scrooge-story-page-21-original-art-gladstone-1995-/a/7474-52395.s",
+  "slug": "walt-disney-giant-1-uncle-scrooge-story-page-21-2-items-don-rosa"
  },
  {
   "artist": "Andy Kubert",
@@ -1444,7 +1533,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96058 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 72
+  "id": 72,
+  "slug": "x-men-34-story-page-15-andy-kubert"
  },
  {
   "artist": "John Buscema",
@@ -1462,7 +1552,8 @@
   "date_approx": false,
   "id": 113,
   "image": "img/ha-7474-52066.jpg",
-  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/john-buscema-and-al-williamson-wolverine-3-story-page-29-original-art-marvel-1989-/a/7474-52066.s"
+  "image_credit": "https://comics.ha.com/itm/original-comic-art/story-page/john-buscema-and-al-williamson-wolverine-3-story-page-29-original-art-marvel-1989-/a/7474-52066.s",
+  "slug": "wolverine-3-story-page-29-john-buscema"
  },
  {
   "artist": "John Hebert",
@@ -1477,7 +1568,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96049 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 73
+  "id": 73,
+  "slug": "ghost-rider-collector-s-edition-1-cover-john-hebert"
  },
  {
   "artist": "Ron Lim",
@@ -1492,7 +1584,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96070 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 74
+  "id": 74,
+  "slug": "silver-surfer-57-splash-page-3-ron-lim"
  },
  {
   "artist": "Rob Liefeld",
@@ -1507,7 +1600,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96067 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 75
+  "id": 75,
+  "slug": "badrock-1-savage-dragon-double-page-splash-28-29-rob-liefeld"
  },
  {
   "artist": "Jon Bogdanove",
@@ -1522,7 +1616,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96012 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 76
+  "id": 76,
+  "slug": "x-factor-50-unused-cover-jon-bogdanove"
  },
  {
   "artist": "Jon Bogdanove",
@@ -1537,7 +1632,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96013 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 77
+  "id": 77,
+  "slug": "superman-the-man-of-steel-31-cover-jon-bogdanove"
  },
  {
   "artist": "John Romita Jr.",
@@ -1552,7 +1648,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96089 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 78
+  "id": 78,
+  "slug": "the-uncanny-x-men-287-gambit-as-the-witness-story-page-18-john-romita-jr"
  },
  {
   "artist": "Joe Matt",
@@ -1567,7 +1664,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95173 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 79
+  "id": 79,
+  "slug": "snarf-15-fat-jack-s-comic-crypt-peepshow-complete-1-page-story-joe-matt"
  },
  {
   "artist": "Joe Matt",
@@ -1582,7 +1680,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95174 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 80
+  "id": 80,
+  "slug": "drawn-quarterly-4-peepshow-back-cover-illustration-joe-matt"
  },
  {
   "artist": "Barry Windsor-Smith",
@@ -1597,7 +1696,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96111 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 81
+  "id": 81,
+  "slug": "wildstorm-rising-1-void-and-voodoo-story-page-19-barry-windsor-smith"
  },
  {
   "artist": "Mark Schultz",
@@ -1612,7 +1712,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95111 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 82
+  "id": 82,
+  "slug": "xenozoic-tales-6-green-air-story-page-10-mark-schultz"
  },
  {
   "artist": "Don Simpson",
@@ -1627,7 +1728,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95120 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 83
+  "id": 83,
+  "slug": "border-worlds-promotional-illustration-don-simpson"
  },
  {
   "artist": "Bart Sears",
@@ -1642,7 +1744,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96098 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 84
+  "id": 84,
+  "slug": "silver-surfer-93-double-page-spread-14-15-bart-sears"
  },
  {
   "artist": "Mike Mignola",
@@ -1657,7 +1760,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95087 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 85
+  "id": 85,
+  "slug": "dr-strange-and-dr-doom-triumph-and-torment-story-page-2-mike-mignola"
  },
  {
   "artist": "Julie Doucet",
@@ -1672,7 +1776,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95169 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 86
+  "id": 86,
+  "slug": "dirty-plotte-8-story-page-5-julie-doucet"
  },
  {
   "artist": "Joe Matt",
@@ -1687,7 +1792,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95172 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 87
+  "id": 87,
+  "slug": "snarf-15-amuzing-grace-peepshow-complete-1-page-story-joe-matt"
  },
  {
   "artist": "Joe Matt",
@@ -1702,7 +1808,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95175 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 88
+  "id": 88,
+  "slug": "peepshow-5-story-page-11-joe-matt"
  },
  {
   "artist": "James Sherman",
@@ -1717,7 +1824,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96099 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 89
+  "id": 89,
+  "slug": "the-punisher-magazine-9-cover-painting-james-sherman"
  },
  {
   "artist": "Alex Saviuk",
@@ -1732,7 +1840,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96096 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 90
+  "id": 90,
+  "slug": "spider-man-adventures-12-splash-page-1-alex-saviuk"
  },
  {
   "artist": "Adam Kubert",
@@ -1747,7 +1856,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 96054 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 91
+  "id": 91,
+  "slug": "kubert-ghost-rider-blaze-spirits-of-vengeance-13-story-page-4-adam-kubert"
  },
  {
   "artist": "Paris Cullins",
@@ -1762,7 +1872,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95029 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 92
+  "id": 92,
+  "slug": "blue-beetle-13-new-teen-titans-double-page-splash-2-3-paris-cullins"
  },
  {
   "artist": "Kim Deitch",
@@ -1777,7 +1888,8 @@
   "auction": "Comic Art Signature Auction #7470, lot 95168 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 93
+  "id": 93,
+  "slug": "waldo-world-2-cover-kim-deitch"
  },
  {
   "artist": "Joe Kubert",
@@ -1792,6 +1904,7 @@
   "auction": "Comic Art Signature Auction #7470, lot 96060 (Sept 25–27, 2026)",
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
-  "id": 94
+  "id": 94,
+  "slug": "tor-2-story-page-17-joe-kubert"
  }
 ]

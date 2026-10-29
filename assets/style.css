@@ -102,3 +102,4 @@ footer a{color:var(--yel)}
 .salelist a{display:flex;gap:14px;align-items:center;padding:10px 4px;border-bottom:1px solid #ccc;color:var(--ink);text-decoration:none;min-height:44px}.salelist a:hover{background:var(--yel)}
 .salelist .sp{font-family:var(--disp);color:var(--red);font-size:22px;min-width:110px}.salelist .st{display:flex;flex-direction:column}.salelist .st .meta{font-size:13px}
 .card h3 a{color:inherit;text-decoration:none}.card h3 a:hover{text-decoration:underline}.hit a{color:inherit}
+@media(max-width:759px){nav.main{flex-wrap:wrap;overflow:visible;justify-content:flex-start}nav.main a{min-height:40px;padding:0 7px;font-size:14px}}

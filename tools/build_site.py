@@ -14,7 +14,7 @@ json.dump(S,open(f'{R}/data/sales.json','w'),indent=1,ensure_ascii=False)
 def sh(t,link='',lt='',tag='h2'): return f'<div class="sh"><{tag}>{t}</{tag}><span class="rule"></span>'+(f'<a class="more" href="{link}">{lt} →</a>' if link else '')+'</div>'
 e=html.escape
 from og import ogimg
-XH='CHILLHOP23'
+XH='DavidJonesXacct'
 def sponsor(p): return f'<aside class="sponsor"><span>Sponsor</span><b>Your gallery here. Reach Prime Era collectors.</b><a href="{p}advertise/">Advertise →</a></aside>'
 def money(p): return '$'+format(int(round(p)),',') if p==int(p) else '$'+format(p,',.2f')
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')

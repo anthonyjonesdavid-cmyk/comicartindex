@@ -56,3 +56,32 @@ for n,m in CH.items():
   w(f'characters/{slug(n)}/index.html',page(f'{n} Original Comic Art Prices (1985–1995) | Comic Art Index',f'{n} original comic art prices: {len(m)} verified Prime Era auction sales from {money(m[-1]["price"])} to {money(m[0]["price"])}, with links to each sale.',b,2,'Characters',og=og,url=f'characters/{slug(n)}/'))
   EXTRA_URLS.append(f'characters/{slug(n)}/')
 print('sales',len(S),'chars',{n:len(m) for n,m in CH.items()})
+# Year pages: r['year'] is the year the art was created/published (shown as "Publisher, year").
+import statistics
+def rowlist_img(rows,p):
+  o='<ol class="salelist">'
+  for r in rows:
+    th=f'<img class="sth" loading="lazy" src="{p}{r["image"]}" alt="{e(r["credit"]+", "+r["title"])} original art">' if r.get('image') else '<span class="sth noimg"></span>'
+    o+=f'<li><a href="{p}sales/{r["slug"]}/">{th}<span class="sp">{money(r["price"])}</span><span class="st"><b>{e(r["title"])}</b><span class="meta">{e(r["credit"])} · {e(r["publisher"])} · {e(r["auction_house"])}, {fdate(r["sale_date"])}</span></span></a></li>'
+  return o+'</ol>'
+YR={}
+for r in S:
+  if 1985<=r['year']<=1995: YR.setdefault(r['year'],[]).append(r)
+yl=''.join(f'<a class="atile" href="{y}/"><h3>{y}</h3><div class="meta">{len(m)} sale{"s" if len(m)>1 else ""} · top {money(max(x["price"] for x in m))}</div></a>' for y,m in sorted(YR.items()))
+w('years/index.html',page('Original Comic Art Prices by Year (1985–1995) | Comic Art Index','Prime Era original comic art sale prices grouped by the year the art was made, 1985 to 1995, from verified public auction results.',f'<section><div class="wrap"><div class="sh"><h1>Years:</h1><span class="rule"></span></div><p class="meta">Sales grouped by the year the artwork was created or published (not the year it sold).</p><div class="grid g3">{yl}</div></div></section>',1,'Years',url='years/'))
+EXTRA_URLS.append('years/')
+for y,m in sorted(YR.items()):
+  m=sorted(m,key=lambda r:-r['price']); p='../../'; tot=sum(r['price'] for r in m)
+  arts_=sorted(set(r['artist'] for r in m))
+  nav_=' · '.join(f'<a href="../{z}/">{z}</a>' if z!=y else f'<b>{z}</b>' for z in sorted(YR))
+  b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All years</a></div><div class="sh"><h1>{y} original art</h1><span class="rule"></span></div>
+<p class="meta">Sales of original comic art created or published in {y}, highest price first. Sale dates vary.</p>
+<div class="stats s4"><div><b>{len(m)}</b>sale{"s" if len(m)>1 else ""} tracked</div><div><b>{money(round(tot))}</b>total</div><div><b>{money(round(statistics.median(r["price"] for r in m)))}</b>median</div><div><b>{money(m[0]["price"])}</b>top price</div></div>
+{sponsor(p)}<h2 class=sub>Sales by price</h2>{rowlist_img(m,p)}
+<h2 class=sub>Artists from {y}</h2><div class="pills">{"".join(f'<a class="pill" href="{p}artists/{slug(a)}/">{e(a)}</a>' for a in arts_)}</div>
+<p class="meta yrnav">Other years: {nav_}</p></div></section>'''
+  ti=[r for r in m if r.get('image')]
+  og=ogimg(f'y-{y}',ti[0]['image'],f'{y} original art','Prime Era comic art prices',f'{len(m)} SALES',money(m[-1]['price'])+'–'+money(m[0]['price']),e(ti[0]['title'][:60])) if ti else 'img/og/default.png'
+  w(f'years/{y}/index.html',page(f'{y} Original Comic Art Prices | Comic Art Index',f'{y} original comic art prices: {len(m)} verified auction sales of art from {y}, from {money(m[-1]["price"])} to {money(m[0]["price"])}, median {money(round(statistics.median(r["price"] for r in m)))}. Links to every lot.',b,2,'Years',og=og,url=f'years/{y}/'))
+  EXTRA_URLS.append(f'years/{y}/')
+print('years',{y:len(m) for y,m in sorted(YR.items())})

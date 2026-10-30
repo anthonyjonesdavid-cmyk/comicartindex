@@ -106,3 +106,7 @@ footer a{color:var(--yel)}
 .kit .formkit-submit{background-color:var(--red)!important;color:#fff!important;opacity:1!important;font-weight:800!important;font-size:19px!important;min-height:44px!important;border:2px solid var(--ink)!important;border-radius:0!important}
 .kit .formkit-submit:hover{background-color:#c42b1f!important}.kit .formkit-submit span{color:#fff!important}
 .kit .formkit-input{color:var(--ink)!important;border:2px solid var(--ink)!important;border-radius:0!important;min-height:44px}.kit .formkit-input::placeholder{color:#666}
+.salelist .sth{width:56px;height:56px;object-fit:cover;object-position:top;border:2px solid var(--ink);flex:none;background:#eee}.salelist .sth.noimg{display:block}
+@media(max-width:559px){.salelist a{gap:10px}.salelist .sp{min-width:84px;font-size:19px}}
+.yrnav a,.yrnav b{display:inline-flex;min-height:40px;align-items:center;padding:0 2px}
+@media(max-width:759px){nav.main a{padding:0 6px}}

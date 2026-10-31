@@ -5,6 +5,7 @@ CHARS=[('Batman',r'\bBatman\b'),('Superman',r'\bSuperman\b'),('Spider-Man',r'Spi
  ('Uncle Scrooge',r'Uncle Scrooge'),('Green Lantern',r'Green Lantern'),('Doctor Strange',r'\bDr\. Strange\b'),('The Punisher',r'Punisher'),
  ('Sabretooth',r'Sabretooth'),('Silver Surfer',r'Silver Surfer'),('John Constantine',r'Constantine'),('Deathlok',r'Deathlok')]
 CH={}
+PUB=json.load(open(f'{R}/data/published.json')) if os.path.exists(f'{R}/data/published.json') else {}
 for n,rx in CHARS:
   m=sorted([r for r in S if re.search(rx,r['title'])],key=lambda r:-r['price'])
   if len(m)>=2: CH[n]=m
@@ -27,11 +28,15 @@ for r in S:
   approx='<p class="meta">Sale date is approximate; see <a href="'+p+'about/">methodology</a>.</p>' if r.get('date_approx') else ''
   links=f'<a class="btn" href="{e(r["source"])}">Source: {e(r["source_name"])} →</a>'
   if r.get('image_credit') and r['image_credit']!=r['source']: links=f'<a class="btn" href="{e(r["image_credit"])}">View the original lot →</a>'+links
+  pb=PUB.get(r['slug']); pubh=''
+  if pb:
+    th=f'<img src="{p}{pb["image"]}" alt="Published cover of {e(pb["issue"])}" loading="lazy" width="72">' if pb.get('image') else '<span class="pubnoimg">No cover scan</span>'
+    pubh=f'<a class="pubv" href="{e(pb["gcd_url"])}" rel="noopener">{th}<span><small>Published version</small><b>{e(pb["issue"])}</b>{("<em>"+e(pb["pub_date"])+"</em>") if pb.get("pub_date") else ""}<u>View issue on Grand Comics Database →</u></span></a>'
   b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All sales</a></div>
 <div class="sale">{img}<div class="saleinfo"><span class="tag2">{e(r["page_type"])}</span><h1>{e(r["title"])}</h1>
 <div class="bigprice">{money(r["price"])}</div>
 <dl class="facts"><dt>Artist</dt><dd><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></dd><dt>Publisher</dt><dd>{e(r["publisher"])}, {r["year"]}</dd><dt>Sold</dt><dd>{fdate(r["sale_date"])}</dd><dt>Auction house</dt><dd>{e(r["auction_house"])}{(" · "+e(r["auction"])) if r.get("auction") else ""}</dd></dl>
-{chh}<div class="lotlinks">{links}</div>{approx}<p class="meta">Price as reported by the source (generally including buyer's premium).</p></div></div>
+{chh}{pubh}<div class="lotlinks">{links}</div>{approx}<p class="meta">Price as reported by the source (generally including buyer's premium).</p></div></div>
 {sponsor(p)}<h2 class=sub>{simlabel}</h2>{rowlist(sim,p)}</div></section>'''
   t=f'{r["title"]} Original Art Price | {r["artist"]}'
   d=f'{r["credit"]}\'s {r["title"]} ({r["publisher"]}, {r["year"]}) original {r["page_type"].lower()} art sold for {money(r["price"])} at {r["auction_house"]} on {fdate(r["sale_date"])}. Sourced price, lot link and similar sales.'

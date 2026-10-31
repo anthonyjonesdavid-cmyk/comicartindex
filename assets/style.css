@@ -110,3 +110,10 @@ footer a{color:var(--yel)}
 @media(max-width:559px){.salelist a{gap:10px}.salelist .sp{min-width:84px;font-size:19px}}
 .yrnav a,.yrnav b{display:inline-flex;min-height:40px;align-items:center;padding:0 2px}
 @media(max-width:759px){nav.main a{padding:0 6px}}
+.pubv{display:flex;gap:12px;align-items:center;margin:12px 0;padding:8px;min-height:44px;background:#fff;border:2px solid var(--ink);color:var(--ink);text-decoration:none}
+.pubv img{width:72px;height:auto;flex:none;border:1px solid #0003;display:block}
+.pubv span{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+.pubv small{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--red)}
+.pubv b{font-size:15px}.pubv em{font-style:normal;font-size:13px;color:#555}
+.pubv u{text-decoration:none;color:var(--red);font-weight:700;font-size:13px;margin-top:4px}
+.pubv:hover{background:var(--yel)}.pubv .pubnoimg{width:72px;flex:none;font-size:11px;color:#777;text-align:center}

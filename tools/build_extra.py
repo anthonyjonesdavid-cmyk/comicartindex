@@ -30,8 +30,16 @@ for r in S:
   if r.get('image_credit') and r['image_credit']!=r['source']: links=f'<a class="btn" href="{e(r["image_credit"])}">View the original lot →</a>'+links
   pb=PUB.get(r['slug']); pubh=''
   if pb:
-    th=f'<img src="{p}{pb["image"]}" alt="Published cover of {e(pb["issue"])}" loading="lazy" width="72">' if pb.get('image') else '<span class="pubnoimg">No cover scan</span>'
-    pubh=f'<a class="pubv" href="{e(pb["gcd_url"])}" rel="noopener">{th}<span><small>Published version</small><b>{e(pb["issue"])}</b>{("<em>"+e(pb["pub_date"])+"</em>") if pb.get("pub_date") else ""}<u>View issue on Grand Comics Database →</u></span></a>'
+    iscov=r['page_type']=='Cover'
+    ip=pb.get('interior_image') if not iscov else None  # only set when the printed page is verified
+    if iscov or ip:
+      src=pb['image'] if iscov else ip
+      th=f'<img src="{p}{src}" alt="Published {"cover" if iscov else "page"} of {e(pb["issue"])}" loading="lazy" width="72">' if src else '<span class="pubnoimg">No cover scan</span>'
+      lab='Published version'
+    else:
+      th=f'<img class="pubsm" src="{p}{pb["image"]}" alt="Cover of {e(pb["issue"])}, the issue this {e(r["page_type"].lower())} appeared in" loading="lazy" width="44">' if pb.get('image') else ''
+      lab=f'Appeared in · issue cover shown, not this {e(r["page_type"].lower())}'
+    pubh=f'<a class="pubv" href="{e(pb["gcd_url"])}" rel="noopener">{th}<span><small>{lab}</small><b>{e(pb["issue"])}</b>{("<em>"+e(pb["pub_date"])+"</em>") if pb.get("pub_date") else ""}<u>View issue on Grand Comics Database →</u></span></a>'
   b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All sales</a></div>
 <div class="sale">{img}<div class="saleinfo"><span class="tag2">{e(r["page_type"])}</span><h1>{e(r["title"])}</h1>
 <div class="bigprice">{money(r["price"])}</div>

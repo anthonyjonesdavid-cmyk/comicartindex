@@ -127,3 +127,6 @@ footer a{color:var(--yel)}
 .dealer{padding:10px 0;border-bottom:1px solid #ddd}.dealer p{margin:3px 0 2px;font-size:14px}.durl{font-size:12px}
 .dnote{margin-top:12px}
 @media(max-width:759px){.dfeats,.dealers{grid-template-columns:1fr}.dfeats{gap:8px}}
+
+.kit .formkit-background{background-image:url(../img/ha-7470-01.jpg)!important;background-size:cover!important;background-position:center 20%!important;background-color:#111!important;opacity:1!important}
+.kitcred{font-size:12px!important;font-weight:600;margin:6px 0 0!important}.kitcred a{color:var(--ink)}

@@ -98,3 +98,10 @@ for y,m in sorted(YR.items()):
   w(f'years/{y}/index.html',page(f'{y} Original Comic Art Prices | Comic Art Index',f'{y} original comic art prices: {len(m)} verified auction sales of art from {y}, from {money(m[-1]["price"])} to {money(m[0]["price"])}, median {money(round(statistics.median(r["price"] for r in m)))}. Links to every lot.',b,2,'Years',og=og,url=f'years/{y}/'))
   EXTRA_URLS.append(f'years/{y}/')
 print('years',{y:len(m) for y,m in sorted(YR.items())})
+
+DL=sorted(json.load(open(f'{R}/data/dealers.json')),key=lambda d:d['name'].lower())
+fs=''.join('<a class="dfeat" href="../advertise/"><span>Featured dealer</span><b>Your gallery here — featured spot available</b><em>Learn more →</em></a>' for _ in range(3))
+dl=''.join(f'<li class="dealer"><a href="{e(d["url"])}" rel="nofollow noopener" target="_blank"><b>{e(d["name"])}</b></a>{(" <span class=meta>· "+e(d["location"])+"</span>") if d.get("location") else ""}<p>{e(d["specialty"])}</p><span class="meta durl">{e(d["url"].split("//")[1].rstrip("/"))}</span></li>' for d in DL)
+db=f'<section><div class="wrap"><div class="sh"><h1>Dealer Directory:</h1><span class="rule"></span></div><p class="meta">Dealers selling original comic art. Listings are free and in alphabetical order; we don\'t rank or endorse dealers. Descriptions come from each dealer\'s own site.</p><div class="dfeats">{fs}</div><ul class="dealers">{dl}</ul><p class="meta dnote">Dealer not listed? Email <a href="mailto:hello@comicartindex.com">hello@comicartindex.com</a></p></div></section>'
+w('dealers/index.html',page('Original Comic Art Dealer Directory | Comic Art Index',f'{len(DL)} dealers selling original comic art, with what each one specializes in and a link to their site.',db,1,'Dealers',url='dealers/'))
+EXTRA_URLS.append('dealers/')

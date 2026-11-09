@@ -9,6 +9,23 @@ PUB=json.load(open(f'{R}/data/published.json')) if os.path.exists(f'{R}/data/pub
 for n,rx in CHARS:
   m=sorted([r for r in S if re.search(rx,r['title'])],key=lambda r:-r['price'])
   if len(m)>=2: CH[n]=m
+# Series pages: series = the title text before " #" (exact match, so Annuals and spin-offs stay separate); 2+ sales to get a page.
+def series_of(t):
+  m=re.match(r'^(.+?) #\d',t); return m.group(1).strip() if m else None
+SER={}
+for r in S:
+  sn=series_of(r['title'])
+  if sn: SER.setdefault(sn,[]).append(r)
+for r in S:  # titles with no issue number that start with a known series name, e.g. "Batman: The Dark Knight Returns (Joker's death) ..."
+  if not series_of(r['title']):
+    for sn in sorted(SER,key=len,reverse=True):
+      if r['title'].startswith(sn+' ('): SER[sn].append(r); break
+SER={n:sorted(m,key=lambda r:-r['price']) for n,m in SER.items() if len(m)>=2}
+def series_name(t):
+  sn=series_of(t)
+  if sn: return sn
+  for n in sorted(SER,key=len,reverse=True):
+    if t.startswith(n+' ('): return n
 def rowlist(rows,p):
   return '<ol class="salelist">'+''.join(f'<li><a href="{p}sales/{r["slug"]}/"><span class="sp">{money(r["price"])}</span><span class="st"><b>{e(r["title"])}</b><span class="meta">{e(r["credit"])} · {e(r["publisher"])}, {r["year"]} · {e(r["auction_house"])}, {fdate(r["sale_date"])}</span></span></a></li>' for r in rows)+'</ol>'
 def ld(o): return '<script type="application/ld+json">'+json.dumps(o,ensure_ascii=False).replace('</','<\\/')+'</script>'
@@ -25,6 +42,8 @@ for r in S:
   else: img=f'<div class="saleimg noimg"><span>{e(r["page_type"])}</span><small>No image on file</small></div>'
   chs=[n for n in CH if r in CH[n]]
   chh=('<p class="meta">Characters: '+' · '.join(f'<a href="{p}characters/{slug(n)}/">{e(n)}</a>' for n in chs)+'</p>') if chs else ''
+  sn=series_name(r['title'])
+  if sn in SER: chh=f'<p class="meta">Series: <a href="{p}series/{slug(sn)}/">{e(sn)}</a> ({len(SER[sn])} sales)</p>'+chh
   approx='<p class="meta">Sale date is approximate; see <a href="'+p+'about/">methodology</a>.</p>' if r.get('date_approx') else ''
   links=f'<a class="btn" href="{e(r["source"])}">Source: {e(r["source_name"])} →</a>'
   if r.get('image_credit') and r['image_credit']!=r['source']: links=f'<a class="btn" href="{e(r["image_credit"])}">View the original lot →</a>'+links
@@ -105,3 +124,27 @@ dl=''.join(f'<li class="dealer"><a href="{e(d["url"])}" rel="nofollow noopener" 
 db=f'<section><div class="wrap"><div class="sh"><h1>Dealer Directory:</h1><span class="rule"></span></div><p class="meta">Dealers selling original comic art. Listings are free and in alphabetical order; we don\'t rank or endorse dealers. Descriptions come from each dealer\'s own site.</p><div class="dfeats">{fs}</div><ul class="dealers">{dl}</ul><p class="meta dnote">Dealer not listed? Email <a href="mailto:hello@comicartindex.com">hello@comicartindex.com</a></p></div></section>'
 w('dealers/index.html',page('Original Comic Art Dealer Directory | Comic Art Index',f'{len(DL)} dealers selling original comic art, with what each one specializes in and a link to their site.',db,1,'Dealers',url='dealers/'))
 EXTRA_URLS.append('dealers/')
+
+# ---- Series pages ----
+import statistics as _st
+sl=''.join(f'<a class="atile" href="{slug(n)}/"><h3>{e(n)}</h3><div class="meta">{len(m)} sales · top {money(m[0]["price"])}</div></a>' for n,m in sorted(SER.items(),key=lambda x:(-len(x[1]),-x[1][0]['price'])))
+w('series/index.html',page('Original Comic Art Prices by Series | Comic Art Index',f'Prime Era (1985–1995) original comic art sale prices grouped by comic series: {len(SER)} titles including The Uncanny X-Men, The Amazing Spider-Man and Batman: The Dark Knight Returns.',f'<section><div class="wrap"><div class="sh"><h1>Series:</h1><span class="rule"></span></div><p class="meta">Sales grouped by the comic title they come from, with at least two sales each. Annuals and spin-off titles are listed separately.</p><div class="grid g3">{sl}</div></div></section>',1,'Series',url='series/'))
+EXTRA_URLS.append('series/')
+for n,m in SER.items():
+  p='../../'; tot=sum(r['price'] for r in m)
+  iss=sorted(set(x.group(1) for x in (re.match(r'^.+? #(\d+)',r['title']) for r in m) if x),key=int)
+  arts_=sorted(set(r['artist'] for r in m))
+  yrs=sorted(set(r['year'] for r in m)); yr=str(yrs[0]) if len(yrs)==1 else f'{yrs[0]}–{yrs[-1]}'
+  others=' · '.join(f'<a href="../{slug(z)}/">{e(z)}</a>' for z in sorted(SER) if z!=n)
+  b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All series</a></div><div class="sh"><h1>{e(n)}</h1><span class="rule"></span></div>
+<p class="meta">Original art sales from {e(n)} ({e(m[0]["publisher"])}, art from {yr}), highest price first. Issues: {", ".join("#"+i for i in iss)}.</p>
+<div class="stats s4"><div><b>{len(m)}</b>sales tracked</div><div><b>{money(round(_st.median(r["price"] for r in m)))}</b>median</div><div><b>{money(m[0]["price"])}</b>highest</div><div><b>{money(round(tot))}</b>total</div></div>
+{sponsor(p)}<h2 class=sub>Sales by price</h2>{rowlist_img(m,p)}
+<h2 class=sub>Artists on {e(n)}</h2><div class="pills">{"".join(f'<a class="pill" href="{p}artists/{slug(a)}/">{e(a)}</a>' for a in arts_)}</div>
+<p class="meta yrnav">Other series: {others}</p></div></section>'''
+  ti=[r for r in m if r.get('image')]
+  og=ogimg('sr-'+slug(n),ti[0]['image'],e(n),'Original comic art prices',f'{len(m)} SALES',money(m[-1]['price'])+'–'+money(m[0]['price']),e(ti[0]['title'][:60])) if ti else 'img/og/default.png'
+  bc={'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Series','item':'https://comicartindex.com/series/'},{'@type':'ListItem','position':2,'name':n}]}
+  w(f'series/{slug(n)}/index.html',page(f'{n} Original Comic Art Prices | Comic Art Index',f'{n} original comic art prices: {len(m)} verified auction sales from {money(m[-1]["price"])} to {money(m[0]["price"])}, median {money(round(_st.median(r["price"] for r in m)))}. Links to every lot.',b,2,'Series',og=og,url=f'series/{slug(n)}/',head=ld(bc)))
+  EXTRA_URLS.append(f'series/{slug(n)}/')
+print('series',{n:len(m) for n,m in SER.items()})

@@ -1,5 +1,5 @@
 import json,re,os,html,math,datetime
-R='/workspace/comicartindex'
+R=os.environ.get('CAI_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S=json.load(open(f'{R}/data/sales.json'))
 HI=json.load(open(f'{R}/data/heritage_images.json'))
 for r in S:
@@ -25,7 +25,7 @@ by={}
 for r in S: by.setdefault(r['artist'],[]).append(r)
 def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogtype='website'):
   p='../'*depth
-  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('Characters','characters/'),('Years','years/'),('Dealers','dealers/'),('About','about/'),('Free newsletter','#newsletter')]
+  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('Characters','characters/'),('Series','series/'),('Years','years/'),('Dealers','dealers/'),('About','about/'),('Free newsletter','#newsletter')]
   navh=''.join(f'<a href="{"" if u.startswith("#") else p}{u}"{" aria-current=page" if cur==n else ""}{" class=nl" if u.startswith("#") else ""}>{n}</a>' for n,u in nav)
   return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">

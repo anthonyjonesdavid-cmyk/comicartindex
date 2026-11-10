@@ -62,6 +62,7 @@ for r in S:
   b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All sales</a></div>
 <div class="sale">{img}<div class="saleinfo"><span class="tag2">{e(r["page_type"])}</span><h1>{e(r["title"])}</h1>
 <div class="bigprice">{money(r["price"])}</div>
+{sharex(r)}
 <dl class="facts"><dt>Artist</dt><dd><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></dd><dt>Publisher</dt><dd>{e(r["publisher"])}, {r["year"]}</dd><dt>Sold</dt><dd>{fdate(r["sale_date"])}</dd><dt>Auction house</dt><dd>{e(r["auction_house"])}{(" · "+e(r["auction"])) if r.get("auction") else ""}</dd></dl>
 {chh}{pubh}<div class="lotlinks">{links}</div>{approx}<p class="meta">Price as reported by the source (generally including buyer's premium).</p></div></div>
 {sponsor(p)}<h2 class=sub>{simlabel}</h2>{rowlist(sim,p)}</div></section>'''

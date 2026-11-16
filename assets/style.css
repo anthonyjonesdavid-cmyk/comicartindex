@@ -130,3 +130,17 @@ footer a{color:var(--yel)}
 
 .kit .formkit-background{background-image:url(../img/ha-7470-01.jpg)!important;background-size:cover!important;background-position:center 20%!important;background-color:#111!important;opacity:1!important}
 .kitcred{font-size:12px!important;font-weight:600;margin:6px 0 0!important}.kitcred a{color:var(--ink)}
+.soldbefore{margin:14px 0;border:2px solid var(--ink);background:#fff}
+.soldbefore h2{margin:0;padding:6px 10px;background:var(--ink);color:#fff;font-family:var(--disp);font-weight:400;font-size:20px;letter-spacing:.02em;text-transform:uppercase}
+.soldbefore ul{list-style:none;margin:0;padding:0}
+.soldbefore li+li{border-top:1px solid #ccc}
+.pslot{display:grid;grid-template-columns:1fr auto auto;grid-template-areas:"d p c" "h h h" "u u u";gap:2px 10px;align-items:center;padding:8px 10px;min-height:44px;color:var(--ink);text-decoration:none}
+.pslot:hover{background:var(--yel)}
+.pslot .pdate{grid-area:d;font-weight:800;font-size:15px}
+.pslot .phouse{grid-area:h;font-size:13px;color:#555}
+.pslot .pprice{grid-area:p;font-family:var(--disp);color:var(--ink);font-size:22px;line-height:1}
+.pslot u{grid-area:u;text-decoration:none;color:var(--red);font-weight:700;font-size:13px}
+.chg{grid-area:c;font-weight:800;font-size:14px;padding:2px 7px;border:2px solid currentColor;white-space:nowrap}
+.chg.up{color:#11703a;background:#e8f6ed}.chg.down{color:#b3261e;background:#fdecea}
+.soldbefore .meta{margin:0;padding:6px 10px;border-top:1px solid #ccc;font-size:12px}
+.resold{display:inline-block;vertical-align:middle;margin-left:4px;padding:1px 6px;background:var(--yel);border:1.5px solid var(--ink);color:var(--ink);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.4}

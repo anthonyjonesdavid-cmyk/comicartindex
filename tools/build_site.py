@@ -31,7 +31,7 @@ def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogt
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <meta property="og:type" content="{ogtype}"><link rel="canonical" href="https://comicartindex.com/{url}"><meta property="og:site_name" content="Comic Art Index"><meta property="og:url" content="https://comicartindex.com/{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="https://comicartindex.com/{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="https://comicartindex.com/{og}">{head}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=12"></head><body>
+<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=14"></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="36" height="36"><span>Comic Art Index</span></a><nav class="main" aria-label="Main">{navh}</nav></div></header>
 <main>{body}</main>
 <section class="band" id="newsletter"><div class="wrap">
@@ -48,10 +48,11 @@ def card(r,p):
     th=f'<a class="thumb" href="{e(lot)}"><img loading="lazy" src="{p}{r["image"]}" alt="{e(r["credit"]+", "+r["title"])} original art"></a><div class="credit">Image: <a href="{e(lot)}">{icred(r)}</a></div>'
   else: th=f'<div class="thumb noimg">{e(r["page_type"])}</div>'
   return f'''<article class="card"><span class="tag">{e(r["page_type"])}</span>{th}<div class="body"><div class="price">{money(r["price"])}</div><h3><a href="{p}sales/{r["slug"]}/">{e(r["title"])}</a></h3><div class="meta"><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a> · {e(r["publisher"])}, {r["year"]}</div><div class="meta">Sold {e(r["auction_house"])}, {fdate(r["sale_date"])}</div><a class="view" href="{e(lot)}">View sale →</a></div></article>'''
+RESOLD=' <span class="resold">Resold</span>'
 def table(rows,p,rank=False,tid=''):
   h=f'<div class="tablewrap"><table class="board"{" id="+tid if tid else ""}><thead><tr>{"<th>#</th>" if rank else ""}<th>Artwork</th><th class="hide-s">Type</th><th class="hide-s">Sold</th><th>Price</th></tr></thead><tbody>'
   for i,r in enumerate(rows):
-    h+=f'<tr>{f"<td class=rank>{i+1}</td>" if rank else ""}<td><b><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></b><br><a href="{p}sales/{r["slug"]}/">{e(r["title"])}</a> <span class="meta">({e(r["publisher"])}, {r["year"]})</span><div class="meta">{e(r["auction_house"])} · <a href="{e(r["source"])}">source</a></div></td><td class="hide-s">{e(r["page_type"])}</td><td class="hide-s">{fdate(r["sale_date"])}</td><td class="num">{money(r["price"])}</td></tr>'
+    h+=f'<tr>{f"<td class=rank>{i+1}</td>" if rank else ""}<td><b><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></b><br><a href="{p}sales/{r["slug"]}/">{e(r["title"])}</a>{RESOLD if r.get("prior_sales") else ""} <span class="meta">({e(r["publisher"])}, {r["year"]})</span><div class="meta">{e(r["auction_house"])} · <a href="{e(r["source"])}">source</a></div></td><td class="hide-s">{e(r["page_type"])}</td><td class="hide-s">{fdate(r["sale_date"])}</td><td class="num">{money(r["price"])}</td></tr>'
   return h+'</tbody></table></div>'
 def chart(rows):
   W,H,pl,pb=640,280,64,34
@@ -105,13 +106,13 @@ sales=f'''<section><div class="wrap"><div class="sh"><h1>All sales:</h1><span cl
 {sponsor("../")}<p class="count" id="n"></p><div id="tbl">{table(S,"../")}</div>
 <div class="sh" id="top"><h2>Top 25 all time:</h2><span class="rule"></span></div>{table(S[:25],"../",rank=True)}</div></section>
 <script>
-const D={json.dumps([[r['artist'],r['credit'],r['title'],r['publisher'],r['page_type'],r['year'],r['price'],r['sale_date'],r['auction_house'],r['source'],r['slug']] for r in S],ensure_ascii=False)};
+const D={json.dumps([[r['artist'],r['credit'],r['title'],r['publisher'],r['page_type'],r['year'],r['price'],r['sale_date'],r['auction_house'],r['source'],r['slug'],len(r.get('prior_sales') or [])] for r in S],ensure_ascii=False)};
 const f=document.getElementById('f'),t=document.getElementById('t'),o=document.getElementById('o'),n=document.getElementById('n'),tb=document.getElementById('tbl');
 const es=s=>String(s).replace(/[&<>"]/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}})[c]);const sl=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const fd=d=>new Date(d+'T12:00:00').toLocaleDateString('en-US',{{month:'short',day:'numeric',year:'numeric'}});
 function go(){{const q=f.value.trim().toLowerCase();let m=D.filter(r=>(!t.value||r[4]==t.value)&&(!q||r.slice(0,6).join(' ').toLowerCase().includes(q)));
 m.sort((a,b)=>o.value=='p'?b[6]-a[6]:o.value=='d'?b[7].localeCompare(a[7]):a[5]-b[5]);n.textContent=m.length+' sale'+(m.length==1?'':'s')+' · $'+Math.round(m.reduce((s,r)=>s+r[6],0)).toLocaleString()+' total';
-tb.innerHTML='<div class="tablewrap"><table class="board"><thead><tr><th>Artwork</th><th class="hide-s">Type</th><th class="hide-s">Sold</th><th>Price</th></tr></thead><tbody>'+m.map(r=>'<tr><td><b><a href="../artists/'+sl(r[0])+'/">'+es(r[1])+'</a></b><br><a href="'+r[10]+'/">'+es(r[2])+'</a> <span class="meta">('+es(r[3])+', '+r[5]+')</span><div class="meta">'+es(r[8])+' · <a href="'+es(r[9])+'">source</a></div></td><td class="hide-s">'+es(r[4])+'</td><td class="hide-s">'+fd(r[7])+'</td><td class="num">$'+r[6].toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>'}}
+tb.innerHTML='<div class="tablewrap"><table class="board"><thead><tr><th>Artwork</th><th class="hide-s">Type</th><th class="hide-s">Sold</th><th>Price</th></tr></thead><tbody>'+m.map(r=>'<tr><td><b><a href="../artists/'+sl(r[0])+'/">'+es(r[1])+'</a></b><br><a href="'+r[10]+'/">'+es(r[2])+'</a>'+(r[11]?' <span class="resold">Resold</span>':'')+' <span class="meta">('+es(r[3])+', '+r[5]+')</span><div class="meta">'+es(r[8])+' · <a href="'+es(r[9])+'">source</a></div></td><td class="hide-s">'+es(r[4])+'</td><td class="hide-s">'+fd(r[7])+'</td><td class="num">$'+r[6].toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>'}}
 const U=new URLSearchParams(location.search);f.value=U.get('q')||'';if(U.get('o'))o.value=U.get('o');[f,t,o].forEach(x=>x.addEventListener('input',go));go();
 </script>'''
 w('sales/index.html',page('All sales · Comic Art Index','Searchable table of verified prime-era original comic art sales.',sales,1,'All sales',url='sales/'))

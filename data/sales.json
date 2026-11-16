@@ -351,7 +351,19 @@
   "id": 19,
   "image": "img/ha-7470-04.jpg",
   "image_credit": "https://comics.ha.com/itm/original-comic-art/covers/richard-williams-mad-289-batman-cover-original-art-ec-1989-/a/7470-94130.s",
-  "slug": "mad-289-batman-cover-richard-williams"
+  "slug": "mad-289-batman-cover-richard-williams",
+  "prior_sales": [
+   {
+    "sale_date": "2008-02-29",
+    "auction_house": "Heritage Auctions",
+    "auction": "Auction #827, Lot 43567",
+    "price": 6573.0,
+    "lot_url": "https://comics.ha.com/itm/original-comic-art/covers/richard-williams-mad-289-batman-e-neuman-cover-original-art-ec-1989-/a/827-43567.s",
+    "source": "https://comicarttracker.com/richard-williams-original-art-for-sale?sold",
+    "source_name": "ComicArtTracker",
+    "verified": "Heritage lot page confirms title and Feb 29, 2008 sale; price from ComicArtTracker's Heritage results; same image as the 2026 lot."
+   }
+  ]
  },
  {
   "artist": "Jean Giraud (Moebius)",
@@ -1729,7 +1741,19 @@
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 83,
-  "slug": "border-worlds-promotional-illustration-don-simpson"
+  "slug": "border-worlds-promotional-illustration-don-simpson",
+  "prior_sales": [
+   {
+    "sale_date": "2024-04-07",
+    "auction_house": "Heritage Auctions",
+    "auction": "Auction #7369, Lot 94618",
+    "price": 3840.0,
+    "lot_url": "https://comics.ha.com/itm/original-comic-art/illustrations/don-simpson-border-worlds-house-ad-retailer-poster-illustration-original-art-kitchen-sink-press-/a/7369-94618.s",
+    "source": "https://comicarttracker.com/don-simpson-original-art-for-sale?sold",
+    "source_name": "ComicArtTracker",
+    "verified": "Heritage lot page confirms title and Apr 7, 2024 sale; price from ComicArtTracker's Heritage results; same image as the 2026 lot."
+   }
+  ]
  },
  {
   "artist": "Bart Sears",

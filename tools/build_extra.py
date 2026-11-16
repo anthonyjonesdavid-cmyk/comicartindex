@@ -59,10 +59,19 @@ for r in S:
       th=f'<img class="pubsm" src="{p}{pb["image"]}" alt="Cover of {e(pb["issue"])}, the issue this {e(r["page_type"].lower())} appeared in" loading="lazy" width="44">' if pb.get('image') else ''
       lab=f'Appeared in · issue cover shown, not this {e(r["page_type"].lower())}'
     pubh=f'<a class="pubv" href="{e(pb["gcd_url"])}" rel="noopener">{th}<span><small>{lab}</small><b>{e(pb["issue"])}</b>{("<em>"+e(pb["pub_date"])+"</em>") if pb.get("pub_date") else ""}<u>View issue on Grand Comics Database →</u></span></a>'
+  prior=sorted(r.get('prior_sales') or [],key=lambda x:x['sale_date'],reverse=True)
+  priorh=''
+  if prior:
+    def _chg(a,b):
+      c=(b-a)/a*100; cls='up' if c>=0 else 'down'; sign='+' if c>=0 else '-'
+      return f'<span class="chg {cls}" title="Change from this sale to the {fdate(r["sale_date"])} sale">{sign}{abs(c):,.0f}%</span>'
+    li=''.join(f'''<li><a class="pslot" href="{e(x.get('lot_url') or x['source'])}" rel="noopener"><span class="pdate">{fdate(x['sale_date'])}{" (approx.)" if x.get('date_approx') else ""}</span><span class="phouse">{e(x['auction_house'])}{(" · "+e(x['auction'])) if x.get('auction') else ""}</span><span class="pprice">{money(x['price'])}</span>{_chg(x['price'],r['price'])}<u>View lot →</u></a></li>''' for x in prior)
+    srcs=sorted(set(x['source_name'] for x in prior if x.get('source_name')))
+    priorh=f'''<div class="soldbefore"><h2>Sold before</h2><ul>{li}</ul><p class="meta">Prices include buyer's premium, as reported{(" by "+", ".join(e(s) for s in srcs)) if srcs else ""} and checked against the lot page. % change is to this {fdate(r["sale_date"])} sale.</p></div>'''
   b=f'''<section><div class="wrap"><div class="crumbs"><a href="../">← All sales</a></div>
 <div class="sale">{img}<div class="saleinfo"><span class="tag2">{e(r["page_type"])}</span><h1>{e(r["title"])}</h1>
 <div class="bigprice">{money(r["price"])}</div>
-<dl class="facts"><dt>Artist</dt><dd><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></dd><dt>Publisher</dt><dd>{e(r["publisher"])}, {r["year"]}</dd><dt>Sold</dt><dd>{fdate(r["sale_date"])}</dd><dt>Auction house</dt><dd>{e(r["auction_house"])}{(" · "+e(r["auction"])) if r.get("auction") else ""}</dd></dl>
+<dl class="facts"><dt>Artist</dt><dd><a href="{p}artists/{slug(r["artist"])}/">{e(r["credit"])}</a></dd><dt>Publisher</dt><dd>{e(r["publisher"])}, {r["year"]}</dd><dt>Sold</dt><dd>{fdate(r["sale_date"])}</dd><dt>Auction house</dt><dd>{e(r["auction_house"])}{(" · "+e(r["auction"])) if r.get("auction") else ""}</dd></dl>{priorh}
 {chh}{pubh}<div class="lotlinks">{links}</div>{approx}<p class="meta">Price as reported by the source (generally including buyer's premium).</p></div></div>
 {sponsor(p)}<h2 class=sub>{simlabel}</h2>{rowlist(sim,p)}</div></section>'''
   t=f'{r["title"]} Original Art Price | {r["artist"]}'

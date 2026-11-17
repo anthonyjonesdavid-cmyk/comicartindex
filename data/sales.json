@@ -751,7 +751,19 @@
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 33,
-  "slug": "the-new-mutants-78-freedom-force-and-hela-cover-rick-leonardi"
+  "slug": "the-new-mutants-78-freedom-force-and-hela-cover-rick-leonardi",
+  "prior_sales": [
+   {
+    "sale_date": "2014-08-08",
+    "auction_house": "Heritage Auctions",
+    "auction": "Auction #7097, Lot 92211",
+    "price": 5975.0,
+    "lot_url": "https://comics.ha.com/itm/original-comic-art/covers/rick-leonardi-and-al-williamson-new-mutants-78-cover-original-art-marvel-1989-/a/7097-92211.s",
+    "source": "https://comicarttracker.com/rick-leonardi-original-art-for-sale?sold",
+    "source_name": "ComicArtTracker",
+    "verified": "Heritage lot page confirms title and Aug 8, 2014 sale (Auction #7097, Aug 7–9, 2014); price from ComicArtTracker's Heritage results; same image as the 2026 lot, and both lots describe the Marvel Comics Presents #11 layout on the back."
+   }
+  ]
  },
  {
   "artist": "Bart Sears",
@@ -911,7 +923,19 @@
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 43,
-  "slug": "web-of-spider-man-60-cover-alex-saviuk"
+  "slug": "web-of-spider-man-60-cover-alex-saviuk",
+  "prior_sales": [
+   {
+    "sale_date": "2025-01-12",
+    "auction_house": "Heritage Auctions",
+    "auction": "Auction #7399, Lot 94250",
+    "price": 16800.0,
+    "lot_url": "https://comics.ha.com/itm/original-comic-art/covers/alex-saviuk-web-of-spider-man-60-cover-original-art-marvel-1990-/a/7399-94250.s",
+    "source": "https://comicarttracker.com/alex-saviuk-original-art-for-sale?sold",
+    "source_name": "ComicArtTracker",
+    "verified": "Heritage lot page confirms title and Jan 12, 2025 sale; price from ComicArtTracker's Heritage results; same image and identical description as the 2026 lot."
+   }
+  ]
  },
  {
   "artist": "Christian Debarre (Bar2)",
@@ -1240,7 +1264,19 @@
   "source": "https://www.rarebookhub.com/auctions/auction_detail?id=51635&size=500",
   "source_name": "Rare Book Hub (Heritage #7470 results)",
   "id": 60,
-  "slug": "classic-punisher-1-wraparound-cover-larry-stroman"
+  "slug": "classic-punisher-1-wraparound-cover-larry-stroman",
+  "prior_sales": [
+   {
+    "sale_date": "2024-06-21",
+    "auction_house": "Heritage Auctions",
+    "auction": "Auction #7374, Lot 93147",
+    "price": 8400.0,
+    "lot_url": "https://comics.ha.com/itm/original-comic-art/covers/larry-stroman-and-frank-cirocco-classic-punisher-1-wraparound-cover-original-art-marvel-1989-/a/7374-93147.s",
+    "source": "https://comicarttracker.com/larry-stroman-original-art-for-sale?sold",
+    "source_name": "ComicArtTracker",
+    "verified": "Heritage lot page confirms title and Jun 21, 2024 sale; price from ComicArtTracker's Heritage results; same image as the 2026 lot."
+   }
+  ]
  },
  {
   "artist": "Don Rosa",

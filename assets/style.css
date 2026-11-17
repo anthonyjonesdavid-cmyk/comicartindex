@@ -144,3 +144,7 @@ footer a{color:var(--yel)}
 .chg.up{color:#11703a;background:#e8f6ed}.chg.down{color:#b3261e;background:#fdecea}
 .soldbefore .meta{margin:0;padding:6px 10px;border-top:1px solid #ccc;font-size:12px}
 .resold{display:inline-block;vertical-align:middle;margin-left:4px;padding:1px 6px;background:var(--yel);border:1.5px solid var(--ink);color:var(--ink);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.4}
+
+.sharex{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;margin:10px 0 4px;background:var(--ink);color:#fff;border:2px solid var(--ink);font-weight:800;font-size:14px;line-height:1;text-decoration:none}
+.sharex:hover,.sharex:focus-visible{background:#fff;color:var(--ink)}
+.sharex-icon{display:block;flex:none;width:16px;height:16px}

@@ -1,4 +1,5 @@
 import json,re,os,html,math,datetime
+from urllib.parse import urlencode, quote
 R=os.environ.get('CAI_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S=json.load(open(f'{R}/data/sales.json'))
 HI=json.load(open(f'{R}/data/heritage_images.json'))
@@ -17,6 +18,21 @@ from og import ogimg
 XH='DavidJonesXacct'
 def sponsor(p): return f'<aside class="sponsor"><span>Sponsor</span><b>Your gallery here. Reach Prime Era collectors.</b><a href="{p}advertise/">Advertise →</a></aside>'
 def money(p): return '$'+format(int(round(p)),',') if p==int(p) else '$'+format(p,',.2f')
+def sharex(r):
+  url=f'https://comicartindex.com/sales/{r["slug"]}/'
+  price=money(r['price']); credit=r['credit']; title=r['title']
+  via=f' via @{XH}'
+  # Keep the tweet under 280 even if the full URL is counted and via is appended.
+  budget=280-len(via)-len(url)-1
+  body=f'{title} by {credit} sold for {price}'
+  if len(body)>budget:
+    keep=budget-len(f' by {credit} sold for {price}')-1
+    title=(title[:max(keep,12)].rstrip(' ,;:-')+'…')
+    body=f'{title} by {credit} sold for {price}'
+  text=f'{body}\n{url}'
+  href='https://x.com/intent/post?'+urlencode({'text':text,'via':XH},quote_via=quote)
+  icon='<svg class="sharex-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
+  return f'<a class="sharex" href="{e(href)}" target="_blank" rel="noopener noreferrer">{icon}Share on X</a>'
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 def fdate(d):
   return datetime.date.fromisoformat(d).strftime('%b %-d, %Y')
@@ -31,7 +47,7 @@ def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogt
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <meta property="og:type" content="{ogtype}"><link rel="canonical" href="https://comicartindex.com/{url}"><meta property="og:site_name" content="Comic Art Index"><meta property="og:url" content="https://comicartindex.com/{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="https://comicartindex.com/{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="https://comicartindex.com/{og}">{head}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=14"></head><body>
+<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=15"></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="36" height="36"><span>Comic Art Index</span></a><nav class="main" aria-label="Main">{navh}</nav></div></header>
 <main>{body}</main>
 <section class="band" id="newsletter"><div class="wrap">

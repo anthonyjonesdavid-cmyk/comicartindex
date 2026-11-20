@@ -39,23 +39,26 @@ def fdate(d):
 FEATURED=['Jim Lee','Todd McFarlane','Frank Miller','Rob Liefeld','Dan Jurgens','Arthur Adams','Sam Kieth','Mike Mignola','Bill Sienkiewicz','John Romita Jr.','George Perez','Ron Lim']
 by={}
 for r in S: by.setdefault(r['artist'],[]).append(r)
-def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogtype='website'):
+def kitform(p):
+  return f'<div class="kit"><script async data-uid="5e118f0c3a" src="https://unique-painter-8002.kit.com/5e118f0c3a/index.js"></script><p class="kitcred">Art: Jim Lee &amp; Art Thibert, <a href="{p}sales/x-men-6-psylocke-and-sabretooth-cover-jim-lee/">X-Men #6 cover</a> (1992), sold for $437,500. Image: <a href="https://comics.ha.com/itm/original-comic-art/covers/jim-lee-and-art-thibert-x-men-6-psylocke-and-sabretooth-cover-original-art-marvel-1992-/a/7470-94010.s">Heritage Auctions</a></p></div>'
+def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogtype='website',band=True):
   p='../'*depth
-  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('Characters','characters/'),('Series','series/'),('Years','years/'),('Dealers','dealers/'),('About','about/'),('Free newsletter','#newsletter')]
-  navh=''.join(f'<a href="{"" if u.startswith("#") else p}{u}"{" aria-current=page" if cur==n else ""}{" class=nl" if u.startswith("#") else ""}>{n}</a>' for n,u in nav)
+  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('Characters','characters/'),('Series','series/'),('Years','years/'),('Dealers','dealers/'),('About','about/'),('Free newsletter','subscribe/')]
+  navh=''.join(f'<a href="{p}{u}"{" aria-current=page" if cur==n else ""}{" class=nl" if n=="Free newsletter" else ""}>{n}</a>' for n,u in nav)
+  bandh=(f'''<section class="band" id="newsletter"><div class="wrap">
+<div class="bandtxt"><h2>Great art. <span>Real prices.</span> Every Friday.</h2>
+<p>Each free Friday issue covers the week's biggest 1985–1995 original art sales, with prices, links to the lots, and one deep dive.</p></div>
+{kitform(p)}
+</div></section>''' if band else '')
   return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111"><title>{e(title)}</title><meta name="description" content="{e(desc)}">
 <meta property="og:type" content="{ogtype}"><link rel="canonical" href="https://comicartindex.com/{url}"><meta property="og:site_name" content="Comic Art Index"><meta property="og:url" content="https://comicartindex.com/{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:image" content="https://comicartindex.com/{og}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="https://comicartindex.com/{og}">{head}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=15"></head><body>
+<link rel="icon" type="image/png" sizes="32x32" href="{p}img/stamp-icon-32.png"><link rel="icon" type="image/png" sizes="512x512" href="{p}img/stamp-icon-512.png"><link rel="apple-touch-icon" href="{p}img/stamp-icon-180.png"><link rel="stylesheet" href="{p}assets/style.css?v=16"></head><body>
 <header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="36" height="36"><span>Comic Art Index</span></a><nav class="main" aria-label="Main">{navh}</nav></div></header>
 <main>{body}</main>
-<section class="band" id="newsletter"><div class="wrap">
-<div class="bandtxt"><h2>Great art. <span>Real prices.</span> Every Friday.</h2>
-<p>Each free Friday issue covers the week's biggest 1985–1995 original art sales, with prices, links to the lots, and one deep dive.</p></div>
-<div class="kit"><script async data-uid="5e118f0c3a" src="https://unique-painter-8002.kit.com/5e118f0c3a/index.js"></script><p class="kitcred">Art: Jim Lee &amp; Art Thibert, <a href="{p}sales/x-men-6-psylocke-and-sabretooth-cover-jim-lee/">X-Men #6 cover</a> (1992), sold for $437,500. Image: <a href="https://comics.ha.com/itm/original-comic-art/covers/jim-lee-and-art-thibert-x-men-6-psylocke-and-sabretooth-cover-original-art-marvel-1992-/a/7470-94010.s">Heritage Auctions</a></p></div>
-</div></section>
-<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to the auction house that sold them (Heritage Auctions or Hake&#x27;s). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a> · <a href="{p}advertise/">Advertise</a></div></footer>
+{bandh}
+<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to the auction house that sold them (Heritage Auctions or Hake&#x27;s). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a> · <a href="{p}advertise/">Advertise</a> · <a href="{p}subscribe/">Subscribe</a></div></footer>
 </body></html>'''
 def icred(r): return "Hake&#x27;s" if r.get('auction_house')=="Hake's" else 'Heritage Auctions (HA.com)'
 def card(r,p):
@@ -101,7 +104,7 @@ home=f'''<div class="hero"><div class="wrap"><div class="herotxt">
 <p>Sourced auction results for original art from 1985–1995. {len(S)} verified sales, {money(round(total))} total.</p>
 <form class="search" role="search" action="sales/" onsubmit="event.preventDefault();location.href='sales/?q='+encodeURIComponent(this.q.value)"><input name="q" id="q" type="search" placeholder="Search by artist, title, year…" aria-label="Search sales" autocomplete="off"><button>Search</button></form>
 <div id="hits" class="hits"></div>
-<a class="sample" href="#newsletter">Get the free Friday issue →</a></div>
+<a class="sample" href="subscribe/">Get the free Friday issue →</a></div>
 <div class="pols">{herof}</div></div></div>
 <section><div class="wrap">{sh("Recent sales:","sales/?o=d","View all sales")}<div class="grid g4">{"".join(card(r,"") for r in recent[:4])}</div></div></section>
 <section><div class="wrap">{sh("Browse by artist:","artists/","View all artists")}<div class="pills">{pills}</div></div></section>
@@ -161,11 +164,12 @@ adv=f'''<section><div class="wrap prose"><div class="sh"><h1>Advertise with Comi
 <p class="meta">We're new and growing. We'd rather tell you that than quote numbers we don't have.</p>
 <h2>Available spots</h2><ul><li><b>Newsletter sponsor:</b> one slim sponsor box in the Friday issue.</li><li><b>Site sponsor box:</b> a slim "Sponsor" box on the sales and artist pages.</li><li><b>Artist page sponsor:</b> your box on the page for the artist you deal in.</li><li><b>Featured dealer:</b> a highlighted spot at the top of our <a href="../dealers/">Dealer Directory</a>.</li></ul>
 <p class="meta">One sponsor per spot, always clearly labeled "Sponsor". Sponsors never affect prices or rankings.</p>
-<h2>Get in touch</h2><p>Email <a href="mailto:hello@comicartindex.com">hello@comicartindex.com</a> or message us on X at <a href="https://x.com/{XH}">@{XH}</a>. You can also subscribe to the free newsletter below and reply to any issue.</p></div></section>'''
+<h2>Get in touch</h2><p>Email <a href="mailto:hello@comicartindex.com">hello@comicartindex.com</a> or message us on X at <a href="https://x.com/{XH}">@{XH}</a>. You can also <a href="../subscribe/">subscribe to the free newsletter</a> below and reply to any issue.</p></div></section>'''
 w('advertise/index.html',page('Advertise · Comic Art Index','Sponsor spots on Comic Art Index and its free Friday newsletter, reaching collectors of 1985–1995 original comic art.',adv,1,url='advertise/'))
+exec(open(f'{R}/tools/build_subscribe.py').read())
 exec(open(f'{R}/tools/build_extra.py').read())
 B='https://comicartindex.com/'
-urls=['','sales/','artists/','about/','advertise/']+[f'artists/{slug(a)}/' for a in arts]+EXTRA_URLS
+urls=['','sales/','artists/','about/','advertise/','subscribe/']+[f'artists/{slug(a)}/' for a in arts]+EXTRA_URLS
 open(f'{R}/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{B}{u}</loc></url>\n' for u in urls)+'</urlset>\n')
 open(f'{R}/robots.txt','w').write(f'User-agent: *\nAllow: /\nSitemap: {B}sitemap.xml\n')
 print(len(S),len(arts))

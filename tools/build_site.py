@@ -43,7 +43,7 @@ def kitform(p):
   return f'<div class="kit"><script async data-uid="5e118f0c3a" src="https://unique-painter-8002.kit.com/5e118f0c3a/index.js"></script><p class="kitcred">Art: Jim Lee &amp; Art Thibert, <a href="{p}sales/x-men-6-psylocke-and-sabretooth-cover-jim-lee/">X-Men #6 cover</a> (1992), sold for $437,500. Image: <a href="https://comics.ha.com/itm/original-comic-art/covers/jim-lee-and-art-thibert-x-men-6-psylocke-and-sabretooth-cover-original-art-marvel-1992-/a/7470-94010.s">Heritage Auctions</a></p></div>'
 def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogtype='website',band=True):
   p='../'*depth
-  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('Characters','characters/'),('Series','series/'),('Years','years/'),('Dealers','dealers/'),('About','about/'),('Free newsletter','subscribe/')]
+  nav=[('Home',''),('All sales','sales/'),('Artists','artists/'),('Characters','characters/'),('Series','series/'),('Years','years/'),('First appearances','first-appearances/'),('Dealers','dealers/'),('About','about/'),('Free newsletter','subscribe/')]
   navh=''.join(f'<a href="{p}{u}"{" aria-current=page" if cur==n else ""}{" class=nl" if n=="Free newsletter" else ""}>{n}</a>' for n,u in nav)
   bandh=(f'''<section class="band" id="newsletter"><div class="wrap">
 <div class="bandtxt"><h2>Great art. <span>Real prices.</span> Every Friday.</h2>
@@ -58,7 +58,7 @@ def page(title,desc,body,depth,cur='',og='img/og/default.png',url='',head='',ogt
 <header class="top"><div class="wrap"><a class="logo" href="{p}"><img src="{p}img/stamp-logo-128.png" alt="" width="36" height="36"><span>Comic Art Index</span></a><nav class="main" aria-label="Main">{navh}</nav></div></header>
 <main>{body}</main>
 {bandh}
-<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to the auction house that sold them (Heritage Auctions or Hake&#x27;s). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a> · <a href="{p}advertise/">Advertise</a> · <a href="{p}subscribe/">Subscribe</a></div></footer>
+<footer><div class="wrap">© 2026 Comic Art Index · Prices are public auction results (generally including buyer's premium) as reported by the linked sources. Artwork © its creators and publishers; images credited to and linked to the auction house that sold them (Heritage Auctions or Hake&#x27;s). Not affiliated with any auction house or publisher. <a href="{p}about/">Methodology &amp; sources</a> · <a href="{p}advertise/">Advertise</a> · <a href="{p}subscribe/">Subscribe</a> · <a href="{p}first-appearances/">First appearances</a></div></footer>
 </body></html>'''
 def icred(r): return "Hake&#x27;s" if r.get('auction_house')=="Hake's" else 'Heritage Auctions (HA.com)'
 def card(r,p):
@@ -168,6 +168,7 @@ adv=f'''<section><div class="wrap prose"><div class="sh"><h1>Advertise with Comi
 w('advertise/index.html',page('Advertise · Comic Art Index','Sponsor spots on Comic Art Index and its free Friday newsletter, reaching collectors of 1985–1995 original comic art.',adv,1,url='advertise/'))
 exec(open(f'{R}/tools/build_subscribe.py').read())
 exec(open(f'{R}/tools/build_extra.py').read())
+exec(open(f'{R}/tools/build_debuts.py').read())
 B='https://comicartindex.com/'
 urls=['','sales/','artists/','about/','advertise/','subscribe/']+[f'artists/{slug(a)}/' for a in arts]+EXTRA_URLS
 open(f'{R}/sitemap.xml','w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{B}{u}</loc></url>\n' for u in urls)+'</urlset>\n')

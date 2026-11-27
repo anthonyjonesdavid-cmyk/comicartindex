@@ -4,19 +4,30 @@
 # tracked sales in data/sales.json of original art from that issue, by sale id.
 # The builder refuses to build if a listed sale's title does not name the
 # group's issue, so the page can never claim a sale belongs to the wrong book.
+# A group may also carry `also_match`, a looser title string for a sale from
+# the same series whose record does not pin it to the debut issue itself.
+# A sale matched only by `also_match` requires the group's `caveat` text,
+# which the page prints under the group note; without one the build refuses.
 DEBUTS = json.load(open(f'{R}/data/debuts.json'))
 _by_id = {r['id']: r for r in S}
 p = '../'
 groups = ''
 for g in DEBUTS:
     rows = []
+    needs_caveat = False
     for i in g['sale_ids']:
         r = _by_id.get(i)
         if r is None:
             raise SystemExit(f"debuts.json: sale id {i} not in sales.json")
-        if g['match'].lower() not in r['title'].lower():
+        if g['match'].lower() in r['title'].lower():
+            pass
+        elif g.get('also_match') and g['also_match'].lower() in r['title'].lower():
+            needs_caveat = True
+        else:
             raise SystemExit(f"debuts.json: sale id {i} title {r['title']!r} does not name {g['match']!r}")
         rows.append(r)
+    if needs_caveat and not g.get('caveat'):
+        raise SystemExit(f"debuts.json: {g['character']} has a sale matched only by also_match but no caveat text")
     rows = sorted(rows, key=lambda r: -r['price'])
     if rows:
         stats = (
@@ -29,10 +40,12 @@ for g in DEBUTS:
     else:
         stats = ''
         listing = '<p class="meta">No sales of original art from this issue are tracked yet.</p>'
+    caveat = f'<p class="meta">{e(g["caveat"])}</p>' if g.get('caveat') else ''
     groups += (
         f'<h2 class="sub">{e(g["character"])}</h2>'
         f'<p class="meta"><b>{e(g["debut"])}</b> · {e(g["issue"])} · {e(g["publisher"])}, {g["year"]}</p>'
         f'<p>{e(g["note"])}</p>'
+        f'{caveat}'
         f'{stats}{listing}'
     )
 body = (
